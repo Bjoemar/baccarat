@@ -3,6 +3,10 @@ socket.emit("newVisitor");
 
 var getPast = true;
 
+$('.gamebody').animate({
+	'opacity' : '1',
+},1000);
+
 socket.on('seconds',function(data){
 
 	if (data.seconds < 15) {
@@ -27,7 +31,7 @@ socket.on('seconds',function(data){
 socket.on('loadDataGame',function(data){
 	
 	if (getPast) {
-			
+
 		$('#p1').attr('src','../assets/images/cards/'+data[0].playerRes1+'.png');
 		$('#p2').attr('src','../assets/images/cards/'+data[0].playerRes2+'.png');
 		$('#b1').attr('src','../assets/images/cards/'+data[0].BankerRes1+'.png');
