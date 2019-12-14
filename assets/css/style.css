@@ -1,8 +1,36 @@
+
 body {
-	background-color: black!important;
+	padding: 0!important;
+	background: #171a1c!important;
+	/*text-align: center;*/
 }
 
 
+
+
+#gameBackground {
+	width: 100%;
+	position: absolute;
+	z-index: -5;
+}
+
+
+#result_bg {
+	width: 100%;
+	position: absolute;
+	z-index: -5;
+}
+
+
+
+.loading_animation_con {
+	width: 100vw;
+	height: 100vh;
+	position: fixed;
+	text-align: center;
+	padding-top: 5%;
+	color: white;
+}
 
 
 .loading_animation_con img{
@@ -20,8 +48,8 @@ body {
 	background: url('../images/bg.jpg');
 	background-size: cover;
 	position: relative;
+	zoom : 1.0;
 	padding-top: 130px;
-	zoom : 0.8;
 }
 
 .timer {
