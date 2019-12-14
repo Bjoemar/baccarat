@@ -69,9 +69,8 @@ server.listen(server_port , server_ip_address , function(){
 	console.log('Listening on' + server_ip_address + ', port' + server_port);	
 })
 
-// server.listen(5000, function() {
-//   console.log('Starting server on port 5000');
-// });
+// server.listen(5000, function() { console.log('Starting server on port
+// 5000'); });
 
 var draw_cards = [
 	{
@@ -1015,7 +1014,7 @@ io.on('connection',function(socket){
 
 						var query = {'table_count' : result[0]['table_count']};
 						console.log(query)
-						dbo.collection('game').find(query).limit(100).toArray(function(err , results){
+						dbo.collection('game').find(query).toArray(function(err , results){
 							io.to(socketid).emit('loadData' , results);
 						})
 
