@@ -269,8 +269,15 @@ body {
 	}
 }
 
-@media only screen and (min-width: 650px) and (max-width: 900px){
+@media only screen and (min-width: 650px) and (max-width: 890px){
 	.game {
 		zoom : 0.8;
+	}
+}
+
+
+@media only screen  (max-width: 900px){
+	.game {
+		zoom : 1.1;
 	}
 }
