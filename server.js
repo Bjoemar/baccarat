@@ -21,13 +21,13 @@ var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0'
 
 var mongo = require('mongodb');
 var MongoClient = require('mongodb').MongoClient;
-// var url = "mongodb://localhost:27017/baccarat";
+var url = "mongodb://localhost:27017/baccarats";
 // var url = "mongodb://joemar12:joemar12@ds329058.mlab.com:29058/baccarat";
 // var url = "mongodb://joemargame12:joemargame12@ds329698-a0.mlab.com:29698,ds329698-a1.mlab.com:29698/baccarat?replicaSet=rs-ds329698";
 
 
 // Main Database url 
-var url = "mongodb+srv://joemar12:joemar12@baccarat-oh6ud.mongodb.net/test?retryWrites=true&w=majority";
+// var url = "mongodb+srv://joemar12:joemar12@baccarat-oh6ud.mongodb.net/test?retryWrites=true&w=majority";
 
 
 var table_count = 0;
@@ -65,13 +65,13 @@ app.get('/d216562cb392efa26d79cd4a8a5938cb', function(request , response) {
 app.use(express.static('./'));
 
 
-server.listen(server_port , server_ip_address , function(){
-	console.log('Listening on' + server_ip_address + ', port' + server_port);	
-})
+// server.listen(server_port , server_ip_address , function(){
+// 	console.log('Listening on' + server_ip_address + ', port' + server_port);	
+// })
 
-// server.listen(5000, function() {
-//   console.log('Starting server on port 5000');
-// });
+server.listen(5000, function() {
+  console.log('Starting server on port 5000');
+});
 
 var draw_cards = [
 	{
@@ -716,6 +716,7 @@ var rounds = (parseInt(roundy) + parseInt(roundx)) + 1;
 setInterval(function(){
 	var seconds = 60 - moment().format('ss');
 
+
 	io.sockets.emit('seconds', {seconds});
 
 	if (seconds == 58) {
@@ -746,8 +747,10 @@ setInterval(function(){
 				 	if (lastWinner != 'tie') {
 					 	if (lastWinner != winner) {
 					 		roundCount++;
+					 		console.log('ROUND COUNT IS '+ roundCount)
 					 		if (roundCount == 37) {
-					 			table_count++;
+					 			
+					 			table_count += 1;
 					 			roundCount = 0;
 					 		}
 					 		lastWinner = winner;
@@ -756,6 +759,9 @@ setInterval(function(){
 				 		lastWinner = winner;
 				 	}
 				 }
+
+				 console.log(winner)
+				 // console.log(table_count)
 
 				var myobj = {
 					"table_count" : table_count,
@@ -1008,8 +1014,8 @@ io.on('connection',function(socket){
 						var dbo = db.db('baccarat');
 
 						var query = {'table_count' : result[0]['table_count']};
-
-						dbo.collection('game').find(query).toArray(function(err , results){
+						console.log(query)
+						dbo.collection('game').find(query).limit(100).toArray(function(err , results){
 							io.to(socketid).emit('loadData' , results);
 						})
 
