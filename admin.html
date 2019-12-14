@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ADMIN PAGE</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui" />
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<!-- Popper JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+
+
+<script src="/socket.io/socket.io.js"></script>
+	
+	<style type="text/css">
+		.button_holder {
+			width: 300px;
+			text-align: center;
+		}
+		h2 {
+			color: white;
+		}
+
+		button {
+			height: 50px;
+			width: 60px;
+			font-size: 12px;
+			background: transparent;
+			border: 1px solid white;
+			color: white;
+			border-radius: 5px;
+			opacity: 0.8;
+		}
+		button:hover {
+			transform: scale(1.2);
+			transition: all 0.5s; 
+			opacity: 1;
+			color: black;
+			font-weight: 600;
+			background: white;
+
+		 }
+
+		 #secondsIndicator {
+		 	color: lightgreen;
+		 	font-weight: 600;
+		 }
+
+	</style>
+<body>
+	<div class="button_holder">
+		<h2>바카라</h2>
+		<p style="color: white;"><strong>( <span style="color: red;">ROUND  </span> : <span id="roundsIndicator">0</span> ) &nbsp;</strong><span id="secondsIndicator">00 : 00</span></p>
+		<button id="player_pair" style="display: none;">Player Pair</button>
+		<button id="banker_pair" style="display: none;">Banker Pair</button>
+		<button id="player_natural" style="display: none;">Player NTR</button>
+		<button id="banker_natural" style="display: none;">Banker NTR</button>
+		<button id="pwin">PLAYER WIN</button>
+		<button id="bwin">BANKER WIN</button>
+		<button id="reset">Reset result</button>
+	</div>
+</body>
+
+<script type="text/javascript">
+	var socket = io();
+
+	socket.emit('newVisitor');
+
+	var admin_cheat = false;
+
+	$('#pwin').click(function(){
+		$('button').css('background' , 'transparent')
+		$(this).css('background','green')
+		var decider = Math.floor(Math.random() * 2);
+
+		if (decider == 0) {
+			$('#player_pair').click();
+		} else {
+			$('#player_natural').click();
+		}
+	});
+
+
+	$('#bwin').click(function(){
+		$('button').css('background' , 'transparent')
+		$(this).css('background','green')
+		var decider = Math.floor(Math.random() * 2);
+
+		if (decider == 0) {
+			$('#banker_pair').click();
+		} else {
+			$('#banker_natural').click();
+		}
+	});
+
+	var pairCombination = [
+		{
+			"c1" : 2,
+			"c2" : 2,
+			"c3" : 5,
+			"leftVal"  : 4,
+			"secondLeftVal" : 9,
+			"c14" : 3,
+			"c15" : 4,
+			"c16" : "",
+			"rightVal" : 7,
+			"secondRightVal" : 7,
+
+		},
+		{
+			"c1" : 4,
+			"c2" : 4,
+			"c3" : "",
+			"leftVal"  : 8,
+			"secondLeftVal" : 8,
+			"c14" : 1,
+			"c15" : 2,
+			"c16" : "",
+			"rightVal" : 3,
+			"secondRightVal" : 3,
+		},
+
+		{
+			"c1" : 4,
+			"c2" : 4,
+			"c3" : "",
+			"leftVal"  : 8,
+			"secondLeftVal" : 8,
+			"c14" : 5,
+			"c15" : 1,
+			"c16" : "",
+			"rightVal" : 6,
+			"secondRightVal" : 6,
+
+		},
+
+		{
+			"c1" : 1,
+			"c2" : 1,
+			"c3" : 6,
+			"leftVal"  : 2,
+			"secondLeftVal" : 8,
+			"c14" : 3,
+			"c15" : 10,
+			"c16" : 9,
+			"rightVal" : 3,
+			"secondRightVal" : 2,
+
+		},
+
+		{
+			"c1" : 3,
+			"c2" : 3,
+			"c3" : "",
+			"leftVal"  : 6,
+			"secondLeftVal" : 6,
+			"c14" : 1,
+			"c15" : 2,
+			"c16" : 9,
+			"rightVal" : 3,
+			"secondRightVal" : 2,
+		},
+
+	];
+
+
+	var NaturalCombination = [
+		{
+			"c1" : 5,
+			"c2" : 4,
+			"c13" : 1,
+			"c14" : 5,
+			"leftVal"  : 9,
+			"secondLeftVal" : 9,
+			"rightVal" : 6,
+			"secondRightVal" : 6,
+		},
+		{
+			"c1" : 6,
+			"c2" : 2,
+			"c13" : 3,
+			"c14" : 2,
+			"leftVal"  : 8,
+			"secondLeftVal" : 8,
+			"rightVal" : 5,
+			"secondRightVal" : 5,
+		},
+		{
+			"c1" : 6,
+			"c2" : 3,
+			"c13" : 4,
+			"c14" : 1,
+			"leftVal"  : 9,
+			"secondLeftVal" : 9,
+			"rightVal" : 5,
+			"secondRightVal" : 5,
+		},
+		{
+			"c1" : 7,
+			"c2" : 2,
+			"c13" : 1,
+			"c14" : 3,
+			"leftVal"  : 9,
+			"secondLeftVal" : 9,
+			"rightVal" : 4,
+			"secondRightVal" : 4,
+		},
+		{
+			"c1" : 8,
+			"c2" : 1,
+			"c13" : 10,
+			"c14" : 1,
+			"leftVal"  : 9,
+			"secondLeftVal" : 9,
+			"rightVal" : 1,
+			"secondRightVal" : 1,
+		},
+		{
+			"c1" : 9,
+			"c2" : 10,
+			"c13" : 6,
+			"c14" : 10,
+			"leftVal"  : 9,
+			"secondLeftVal" : 9,
+			"rightVal" : 6,
+			"secondRightVal" : 6,
+		},
+	];
+
+	var second = 0;
+
+	$('#player_pair').click(function(){
+		if (!admin_cheat) {
+			alert("Can't Modify result right now.")
+		} else {
+			var randCard = Math.floor(Math.random() * 4) + 1;
+			var bankerCard = [pairCombination[randCard]['c14'] ,pairCombination[randCard]['c15'],pairCombination[randCard]['c16']];
+			var playerCard = [pairCombination[randCard]['c1'] ,pairCombination[randCard]['c2'],pairCombination[randCard]['c3']];
+			socket.emit('modifyResult', 
+				{
+					"playerRes1" : playerCard[0] ,
+					"playerRes2" : playerCard[1] ,
+					"ep2card" : playerCard[2], 
+					"BankerRes1" : bankerCard[0],
+					"BankerRes2" : bankerCard[1],
+					"eb2card" : bankerCard[2],
+					"bankerPair" : false,
+					"playerPair" : true,
+					"playerNatural" : false,
+					"BankerNatural" : false,
+					"leftVal" : pairCombination[randCard]['leftVal'],
+					"rightVal" : pairCombination[randCard]['rightVal'],
+					"secondLeftVal" : pairCombination[randCard]['secondLeftVal'],
+					"secondRightVal" : pairCombination[randCard]['secondRightVal'],
+				}
+			);
+		}
+
+	})
+
+
+	$('#banker_pair').click(function(){
+		if (!admin_cheat) {
+			alert("Can't Modify result right now.")
+		} else {
+			var randCard = Math.floor(Math.random() * 4) + 1;
+			var playerCard = [pairCombination[randCard]['c14'] ,pairCombination[randCard]['c15'],pairCombination[randCard]['c16']];
+			var bankerCard = [pairCombination[randCard]['c1'] ,pairCombination[randCard]['c2'],pairCombination[randCard]['c3']];
+
+			socket.emit('modifyResult', 
+				{
+					"playerRes1" : playerCard[0] ,
+					"playerRes2" : playerCard[1] ,
+					"ep2card" : playerCard[2], 
+					"BankerRes1" : bankerCard[0],
+					"BankerRes2" : bankerCard[1],
+					"eb2card" : bankerCard[2],
+					"bankerPair" : true,
+					"playerPair" : false,
+					"playerNatural" : false,
+					"BankerNatural" : false,
+					"leftVal" : pairCombination[randCard]['rightVal'] ,
+					"rightVal" : pairCombination[randCard]['leftVal'],
+					"secondLeftVal" : pairCombination[randCard]['secondRightVal'],
+					"secondRightVal" : pairCombination[randCard]['secondLeftVal'],
+				}
+			);
+		}
+	})
+
+
+	$('#player_natural').click(function(){
+		if (!admin_cheat) {
+			alert("Can't Modify result right now.");
+		} else {
+			var randCard = Math.floor(Math.random() * 4) + 1;
+			var bankerCard = [NaturalCombination[randCard]['c13'] ,NaturalCombination[randCard]['c14']];
+			var playerCard = [NaturalCombination[randCard]['c1'] ,NaturalCombination[randCard]['c2']];
+
+			socket.emit('modifyResult', 
+				{
+					"playerRes1" : playerCard[0] ,
+					"playerRes2" : playerCard[1] ,
+					"ep2card" : "", 
+					"BankerRes1" : bankerCard[0],
+					"BankerRes2" : bankerCard[1],
+					"eb2card" : "",
+					"bankerPair" : false,
+					"playerPair" : false,
+					"playerNatural" : true,
+					"BankerNatural" : false,
+					"leftVal" : NaturalCombination[randCard]['leftVal'],
+					"rightVal" : NaturalCombination[randCard]['rightVal'] ,
+					"secondLeftVal" : NaturalCombination[randCard]['secondLeftVal'],
+					"secondRightVal" :NaturalCombination[randCard]['secondRightVal'],
+				}
+			);
+		}
+	})
+
+
+	$('#banker_natural').click(function(){
+		if (!admin_cheat) {
+			alert("Can't Modify result right now.")
+		} else {
+			var randCard = Math.floor(Math.random() * 4) + 1;
+			var playerCard = [NaturalCombination[randCard]['c13'] ,NaturalCombination[randCard]['c14']];
+			var bankerCard = [NaturalCombination[randCard]['c1'] ,NaturalCombination[randCard]['c2']];
+
+
+			socket.emit('modifyResult', 
+				{
+					"playerRes1" : playerCard[0] ,
+					"playerRes2" : playerCard[1] ,
+					"ep2card" : "", 
+					"BankerRes1" : bankerCard[0],
+					"BankerRes2" : bankerCard[1],
+					"eb2card" : "",
+					"bankerPair" : false,
+					"playerPair" : false,
+					"playerNatural" : false,
+					"BankerNatural" : true,
+					"leftVal" : NaturalCombination[randCard]['rightVal'] ,
+					"rightVal" : NaturalCombination[randCard]['leftVal'],
+					"secondLeftVal" : NaturalCombination[randCard]['secondRightVal'],
+					"secondRightVal" : NaturalCombination[randCard]['secondLeftVal'],
+				}
+			);
+
+		}
+	})
+
+	$('#reset').click(function(){
+
+		if (!admin_cheat) {
+			alert("Can't Modify result right now.")
+		} else {
+			socket.emit('clearData');
+			$('button').css('background' , 'transparent')
+		}
+	})
+
+
+	socket.on('seconds',function(data){
+
+
+		if (data.seconds > 30) {
+			if ((data.seconds - 30) < 10) {
+
+
+				if ((data.seconds - 30) <= 30 && (data.seconds - 30) >= 15 || (data.seconds - 30) < 2) {
+					$('#secondsIndicator').css('color' , 'red');
+					admin_cheat = false;
+				} else {
+					$('#secondsIndicator').css('color' , 'lightgreen');
+					admin_cheat = true;
+				}
+
+				$('#secondsIndicator').html("00 : 0"+(data.seconds - 30))
+			} else {
+
+
+				if ((data.seconds - 30) <= 30 && (data.seconds - 30) >= 15 || (data.seconds - 30) < 2) {
+					$('#secondsIndicator').css('color' , 'red');
+					admin_cheat = false;
+				} else {
+					$('#secondsIndicator').css('color' , 'lightgreen');
+					admin_cheat = true;
+				}
+
+
+				$('#secondsIndicator').html("00 : "+(data.seconds - 30))
+			}
+		} else {
+
+			if (data.seconds < 10) {
+
+
+				if (data.seconds <= 30 && data.seconds >= 15 || data.seconds < 2) {
+					$('#secondsIndicator').css('color' , 'red');
+					admin_cheat = false;
+				} else {
+					$('#secondsIndicator').css('color' , 'lightgreen');
+					admin_cheat = true;
+				}
+
+				$('#secondsIndicator').html("00 : 0"+data.seconds)
+			} else {
+
+
+				if (data.seconds <= 30 && data.seconds >= 15 || data.seconds < 2) {
+					$('#secondsIndicator').css('color' , 'red');
+					admin_cheat = false;
+				} else {
+					$('#secondsIndicator').css('color' , 'lightgreen');
+					admin_cheat = true;
+				}
+
+
+				$('#secondsIndicator').html("00 : "+data.seconds)
+			}
+		}
+
+	})
+
+	socket.on('gameRounds',function(data){
+		$('#roundsIndicator').html(data.game_round);
+	})
+
+
+	socket.on('loadDataGame',function(data){
+
+		if ((data[0].round + 1) < 10) {
+			$('#roundsIndicator').html(data[0].game_round + 1);
+		} else {
+			$('#roundsIndicator').html(data[0].game_round + 1);
+
+		}
+	})
+
+</script>
+</html>

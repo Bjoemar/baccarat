@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Baccarat</title>
+
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<!-- Popper JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.1.1/howler.min.js"></script>
+
+	<!-- Socket script -->
+	<script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+
+	<div class="gamebody">
+		<div class="game">
+			<!-- start Timer -->
+			<div class="timer">
+				<p id="round_text">ROUND 713</p>
+				<h2 id="time_text">00 : 00</h2>
+			</div>
+			<!-- End Timer -->
+
+			<div class="game_card">
+				<div class="invisiblecards">
+					<img src="assets/images/closeCard.png" id="_p1"></img>
+					<img src="assets/images/closeCard.png" id="_p2"></img>
+					<img src="assets/images/closeCard.png" id="_p3"></img>
+					<img src="assets/images/closeCard.png" id="_b1"></img>
+					<img src="assets/images/closeCard.png" id="_b2"></img>
+					<img src="assets/images/closeCard.png" id="_b3"></img>
+				</div>
+
+				<div class="player_card">
+					<img class="cards" id="p3" src="assets/images/FlowerCard/flower_1.png">
+					<img class="cards" id="p2" src="assets/images/FlowerCard/flower_1.png">
+					<img class="cards" id="p1" src="assets/images/FlowerCard/flower_1.png">
+				</div>
+
+				<div class="banker_card">
+					<img class="cards" id="b1" src="assets/images/FlowerCard/flower_1.png">
+					<img class="cards" id="b2" src="assets/images/FlowerCard/flower_1.png">
+					<img class="cards" id="b3" src="assets/images/FlowerCard/flower_1.png">
+				</div>
+
+				<div class="winner">
+					<img id="banker_win" src="assets/images/Components/bankerwin.png">
+					<img id="player_win" src="assets/images/Components/playerwin.png">
+					<img id="tie_win" src="assets/images/Components/tie.png">
+				</div>
+
+				<div id="playerScore">
+					0
+				</div>
+				<div id="bankerScore">
+					0
+				</div>
+
+			</div>
+
+
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="static/main.js"></script>
+</html>

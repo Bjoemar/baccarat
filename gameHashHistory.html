@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Game Result</title>
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1">	 -->
+	<link rel="stylesheet" type="text/css" href="assets/css/gameResultStyle.css">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<!-- Popper JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+		<script src="/socket.io/socket.io.js"></script>
+</head>
+	<body>
+
+		<div class="gameresult">
+				<h4>Hash Code + Salt Code 결과값 조회하기</h4>
+			
+<div class="searchForm">
+			<div class="searchHolder">
+				
+
+			 	<div class="hashbox boxtext">
+					<div class="title boxcont">
+						<h5>라운드</h5>
+					</div>
+					<div class="hash-input boxcont">
+						<input id="roundtxt" type="text">
+					</div>
+				</div>
+
+				<div class="hashbox boxtext">
+					<div class="title boxcont">
+						<h5>Hash Code</h5>
+					</div>
+					<div class="hash-input boxcont">
+						<input id="hashtext" type="text">
+					</div>
+				</div>
+
+				<div class="hashbox boxtext">
+					<div class="title boxcont">
+						<h5>Salt Code</h5>
+					</div>
+					<div class="hash-input boxcont">
+						<input id="salttext" name="text">
+					</div>
+				</div>
+
+			</div>
+			<button id="checkResult">조회하기</button>
+
+			<div class="clear"></div>
+			<h5 class="mt-5" id="restext">라운드 : <span id="result_round"></span> &nbsp; | 결과 : "<span id="result_num"></span>"  &nbsp; | Ppair : "<span id="player_pair"></span>" &nbsp; | Bpair : "<span id="banker_pair"></span>"</h5>
+			<h5 class="mt-5" id="invalidtxt"></h5>
+		</div>
+
+</div>
+
+<div class="gameresult">
+	
+	<input type="date" class="btn btn-dark" id="date-picker">
+	
+	<h4>바카라 지난결과</h4>
+
+	<table>
+			<th class="trounds result-table">라운드</th>
+			<th class="thash result-table">Hash Code</th>
+			<th class="tsaltcode result-table">Salt Code</th>
+			<th class="tcard result-table">PLAYER CARD | BANKER CARD</th>
+			<th class="tresult result-table">결과</th>
+	</table>
+</div>
+
+<div class="gameresult">
+	<input type="hidden" id="pageNumber">
+	<input type="hidden" id="numpages">
+	<nav aria-label="page navigation example">
+		
+		<ul class="pagination justify-content-center">
+			<li class="page-item" id="prevpage"><a class="page-link" href="#"><</a></li>
+			<div class="page_content">
+				
+			</div>
+			<li class="page-item" id="nextpage"><a class="page-link" href="#">></a></li>
+		</ul>
+	</nav>
+
+</div>
+
+<div id="errorModal" class="modal fade" role="dialog">
+	  <div class="modal-dialog ">
+
+	    <!-- Modal content-->
+	    <div class="modal-content">
+	      <div class="modal-body">
+	        <div class="m-seperator">
+	        	<img src="assets/images/error-img.png">
+	        </div>
+	        <p id="error-msg"></p>
+	      </div>
+	      <button type="button" class="btn btn-danger" data-dismiss="modal">닫기</button>
+	    </div>
+
+	  </div>
+	</div>
+
+
+	</body>
+	<script type="text/javascript" src="static/history.js"></script>
+</html>

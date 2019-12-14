@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>Baccarat</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui" />
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<!-- Popper JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</head>
+
+<script src="/socket.io/socket.io.js"></script>
+
+<body>
+	<div class="loading_animation_con">
+		<img src="assets/images/baccaratLoading.png" id="loadingAnimation">
+		<p>Components Loaded <strong><span id="percent">0%</span></strong></p>
+	</div>
+
+	<img src="assets/images/result_bg.png" id="result_bg" style="opacity: 0;">
+	<canvas id="result_canvas" style="opacity: 0;"></canvas>
+</body>
+<script type="text/javascript" src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
+<script type="text/javascript" src="static/game_result.js"></script>
+</html>

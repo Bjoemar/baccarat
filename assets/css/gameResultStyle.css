@@ -1,0 +1,390 @@
+body{
+	background-color: #171a1c!important;
+}
+
+.clear{
+	content: '';
+	display: block;
+	clear: both;
+}
+
+.redResult {
+    color: #ff0000!important;
+    font-weight: 900;
+}
+
+.greenResult {
+    color: green!important;
+    font-weight: 900;
+}
+
+.blueResult {
+    color: #23a0ee!important;
+    font-weight: 900;
+}
+
+.gameresult{
+	padding: 20px;
+    width: 1000px;
+    margin: auto;
+}
+.gameresult h4{
+    margin-top: 5px;
+	color: #ffffff;
+	text-align: center;
+	font-size: 28px;
+}
+.gameresult h5{
+	color: white;
+	font-size: 16px;
+	color: #b2b2b2;
+}
+.searchForm {
+	padding: 30px;
+	background-color: #2c2f36;
+	width: 100%;
+}
+.boxtext{
+	padding: 5px;
+}
+.title {
+	width: 15%;
+}
+.hash-input {
+	display: inline-block;
+	width: 80%;
+}
+.searchHolder{
+	width: 80%;
+	float: left;
+}
+.boxcont {
+    display: inline-flex;
+}
+.hash-input input {
+    width: 100%;
+    height: 33px;
+    padding-left: 10px;
+    background: #22272b;
+    border: 1px solid;
+    border-color: #1b1e22 #404548 #404548 #1b1e22;
+    color: #b2b2b2;
+    line-height: 31px;
+}
+table{
+	width: 100%;
+	margin: auto;
+}
+table th{
+	background: #2c2f36;
+	font-size: 14px;
+	color: #b2b2b2;
+	padding: 10px;
+	text-align: center;
+}
+table td {
+	height: 30px;
+	border-bottom: 1px solid #2c2f36;
+	font-size: 12px;
+	color: #b2b2b2;
+	text-align: center;
+	cursor: pointer; 
+}
+
+.thash{
+	width: 20%;
+	text-align: center;
+}
+
+.thash label {
+    width: 80%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+.tcard {
+    width: 56%;
+}
+
+.tcard img {
+    width: 8%;
+    margin: 5px;
+    text-align: center;
+}
+
+.tresult{
+	width: 8%;
+}
+
+.trounds{
+	width: 8%;
+}
+
+.tsaltcode {
+	width: 8%;
+}
+
+#checkResult {
+	height: 130px;
+	width: 11%;
+	float: right;
+	background-color: #45b5da;
+	border:none;
+}
+.page-item a{
+    background-color: #2c2f36;
+    color: white;
+    border: 1px solid #2c2f36;
+}
+
+.page-link:hover{
+    z-index: 2;
+    color: white!important;
+    text-decoration: none!important;
+    background-color: #333!important;
+    border-color: black!important;
+}
+#restext{
+	display: none;
+}
+#invalidtxt{
+	display: none;
+
+}
+.page-item {
+	display: inline-block;
+}
+#error-msg{
+	width: 85%;
+    float: right;
+    margin-top: 5px;
+}
+
+
+
+@media only screen and (max-width:  600px) {
+
+ #date-picker {
+        text-align: center;
+        height: 20px;
+        width: 23%;
+        font-size: 6.5px;
+         padding: 2px;
+    }
+
+    .gameresult nav{
+    	zoom: 0.14;
+    }
+
+    .g-info {
+
+        font-size: 10px;
+    }
+    .gameresult h4 {
+
+        color: #ffffff;
+        text-align: center;
+        font-size: 15px;
+
+    }
+
+    .gameresult {
+
+        padding: 20px;
+        width: 100%;
+        margin: auto;
+    }
+    .searchForm {
+
+        padding: 10px;
+        background-color: #2c2f36;
+        width: 100%;
+        
+    }
+    .boxtext {
+
+        padding: 2px;
+    }
+
+
+     .gameresult h5 {
+
+        color: white;
+        font-size: 0.4em;
+        color: #b2b2b2;
+
+     }
+
+      #checkResult {
+         height: 110px;
+         width: 17%;
+         font-size: 8px;
+         float: right;
+         background-color: #45b5da;
+         border: none;
+    }
+
+    .hashHistory th, tr {
+            
+        font-size: 5px;
+    }
+
+     table td {
+        height: 20px;
+        border-bottom: 1px solid #2c2f36;
+        font-size: 5px;
+        color: #b2b2b2;
+        text-align: center;
+    }
+
+    .gameresult {
+        padding: 20px;
+        width: 100%;
+        margin: auto;
+    }
+    table th {
+        background: #2c2f36;
+        /*font-size: 14px;*/
+        /*font-size: 5px;*/
+        height: 20px;
+        color: #b2b2b2;
+            
+        text-align: center;
+    }
+    .result-table{
+    	font-size: 7px;
+    	padding: 0;
+    }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 992px) {
+
+.g-info{
+	font-size: 15px;
+    color: #ffffff;
+    text-align: center;
+    font-size: 28px;
+    }  
+
+
+    .gameresult {
+        padding: 20px;
+        width: 100%!important;
+        margin: auto;
+    }
+
+
+    .searchForm {
+        padding: 10px;
+        background-color: #2c2f36;
+        width: 100%;
+    }
+
+
+    .boxtext {
+        padding: 2px;
+    }
+
+    .gameresult h5 {
+        color: white;
+        font-size: 12px;
+        color: #b2b2b2;
+    }
+
+
+    #checkResult {
+        height: 110px;
+        width: 15%;
+        float: right;
+        background-color: #45b5da;
+        border: none;
+    }
+
+    .hashHistory th, tr {
+        font-size: 10px;
+    }
+
+    .table-th {
+        font-size: 12px;
+    }
+
+    table td {
+        height: 30px;
+        border-bottom: 1px solid #2c2f36;
+        font-size: 10px;
+        color: #b2b2b2;
+        text-align: center;
+    }
+
+
+    .gameresult {
+        padding: 20px;
+        width: 100%;
+        margin: auto;
+    }
+
+}
+
+
+.m-seperator img {
+    object-fit: contain;
+    height: 100%;
+    width: 100%;
+}
+.m-seperator {
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+}
+
+#error-msg {
+    width: 85%;
+    float: right;
+    margin-top:;
+}
+
+
+input[type="date"]::-webkit-clear-button {
+     z-index: 1;
+     display: none;
+ }
+
+input[type="date"]::-webkit-inner-spin-button {
+    z-index: 1;
+    display: none;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: auto;
+    height: auto;
+    color: transparent;
+    background: transparent;
+}
+
+input[type="date"]:hover:after {
+    color: #bf1400;
+}
+
+input[type="date"]:after {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900; 
+    content: "\f073";
+    color: #555;
+    padding: 0 5px;
+    display: none;
+}
+
+input[type="date"] {
+    position: relative;
+}
+
+#date-picker {
+    position: absolute;
+}

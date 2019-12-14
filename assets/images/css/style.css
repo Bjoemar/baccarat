@@ -1,0 +1,40 @@
+body {
+	padding: 0!important;
+	background: #171a1c!important;
+	text-align: center;
+}
+
+#gameCanvas{
+
+}
+
+
+#gameBackground {
+	width: 100%;
+	position: absolute;
+	z-index: -5;
+}
+
+
+#result_bg {
+	width: 100%;
+	position: absolute;
+	z-index: -5;
+}
+
+
+
+.loading_animation_con {
+	width: 100vw;
+	height: 100vh;
+	position: fixed;
+	text-align: center;
+	padding-top: 5%;
+	color: white;
+}
+
+
+
+.loading_animation_con img{
+	width: 100px;
+}
