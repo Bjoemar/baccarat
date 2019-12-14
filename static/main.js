@@ -1,10 +1,13 @@
 var socket = io();
 socket.emit("newVisitor");
 
-
+var getPast = true;
 
 socket.on('seconds',function(data){
 
+	if (data.seconds < 15) {
+		getPast = false;
+	}
 	if (data.seconds < 10) {
 		$('#time_text').html("00 : 0"+data.seconds);
 		// time_text.text = "00 : 0"+data.seconds;
@@ -22,6 +25,57 @@ socket.on('seconds',function(data){
 
 
 socket.on('loadDataGame',function(data){
+	
+	if (getPast) {
+			
+		$('#p1').attr('src','../assets/images/cards/'+data[0].playerRes1+'.png');
+		$('#p2').attr('src','../assets/images/cards/'+data[0].playerRes2+'.png');
+		$('#b1').attr('src','../assets/images/cards/'+data[0].BankerRes1+'.png');
+		$('#b2').attr('src','../assets/images/cards/'+data[0].BankerRes2+'.png');
+		$('#p1').css('opacity' , '1');
+		$('#p2').css('opacity' , '1');
+		$('#b1').css('opacity' , '1');
+		$('#b2').css('opacity' , '1');
+		$('#playerScore').show();
+		$('#bankerScore').show();
+		$('#playerScore').html(data[0].secondLeftVal);
+		$('#bankerScore').html(data[0].secondRightVal);
+		if (data[0].winner == 'banker') {
+			$('.winner img').hide();
+				$('#banker_win').show();
+				$('#banker_win').animate({
+					'left' : '-10px',
+
+				},500);
+			
+
+		} else if (data[0].winner == 'player') {
+
+			$('.winner img').hide();
+				$('#player_win').show();
+				$('#player_win').animate({
+					'left' : '-10px',
+				},500);
+		} else {
+			$('.winner img').hide();
+				$('#tie_win').show();
+				$('#tie_win').animate({
+					'left' : '-10px',
+				},500);
+		}
+
+		if (data[0].eb2card != null) {
+			$('#b3').attr('src','../assets/images/cards/'+data[0].eb2card+'.png');
+			$('#b3').css('opacity' , '1');
+		}
+
+		if (data[0].ep2card != null) {
+			$('#p3').attr('src','../assets/images/cards/'+data[0].ep2card+'.png');
+			$('#p3').css('opacity' , '1');
+		}
+	}
+
+
 
 	if ((data[0].round + 1) < 10) {
 		$('#round_text').html("ROUND 0"+(data[0].round + 1));
