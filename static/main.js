@@ -699,7 +699,7 @@ function animateCards(){
 	setTimeout(function(){
 		$('#_b1').show();
 		$('#_b1').animate({
-			'left' : '-274px',
+			'left' : '-261px',
 			'top' : '0',
 			'transform' : 'rotate(0deg)',
 		},500);
