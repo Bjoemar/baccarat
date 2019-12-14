@@ -5,47 +5,6 @@ body {
 
 
 
-body {
-	padding: 0!important;
-	background: #171a1c!important;
-	text-align: center;
-}
-
-#gameCanvas{
-
-}
-
-
-#gameBackground {
-	width: 100%;
-	position: absolute;
-	z-index: -5;
-}
-
-
-#result_bg {
-	width: 100%;
-	position: absolute;
-	z-index: -5;
-}
-
-
-
-.loading_animation_con {
-	width: 100vw;
-	height: 100vh;
-	position: fixed;
-	text-align: center;
-	padding-top: 5%;
-	color: white;
-}
-
-
-
-.loading_animation_con img{
-	width: 100px;
-}
-
 .loading_animation_con img{
 	width: 100px;
 }
@@ -62,6 +21,7 @@ body {
 	background-size: cover;
 	position: relative;
 	padding-top: 130px;
+	zoom : 0.8;
 }
 
 .timer {
@@ -281,7 +241,7 @@ body {
 	}
 }
 
-@media only screen and (min-width: 650px) and (max-width: 992px){
+@media only screen and (min-width: 650px) and (max-width: 840px){
 	.game {
 		zoom : 0.8;
 	}
