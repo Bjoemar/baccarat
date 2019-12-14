@@ -20,7 +20,7 @@ var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0'
 
 
 var mongo = require('mongodb');
-// var MongoClient = require('mongodb').MongoClient;
+var MongoClient = require('mongodb').MongoClient;
 // var url = "mongodb://localhost:27017/baccarat";
 // var url = "mongodb://joemar12:joemar12@ds329058.mlab.com:29058/baccarat";
 // var url = "mongodb://joemargame12:joemargame12@ds329698-a0.mlab.com:29698,ds329698-a1.mlab.com:29698/baccarat?replicaSet=rs-ds329698";
