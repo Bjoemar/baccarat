@@ -685,15 +685,15 @@ function cleanCard(){
 
 function animateCards(){
 
-	$('#_p1').show();
-	$('#_p1').animate({
-		'left' : '-358px',
+
+	// NEW 
+
+	$('#_p2').show();
+	$('#_p2').animate({
+		'left' : '-428px',
 		'top' : '0',
 		'transform' : 'rotate(0deg)',
 	},500);
-
-
-
 
 
 	setTimeout(function(){
@@ -707,13 +707,16 @@ function animateCards(){
 
 	},1000)
 
+
 	setTimeout(function(){
-		$('#_p2').show();
-		$('#_p2').animate({
-			'left' : '-428px',
+		
+		$('#_p1').show();
+		$('#_p1').animate({
+			'left' : '-358px',
 			'top' : '0',
 			'transform' : 'rotate(0deg)',
 		},500);
+
 
 
 
@@ -730,6 +733,11 @@ function animateCards(){
 		},500);
 
 	},3000);
+
+
+
+
+
 
 }
 
