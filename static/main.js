@@ -727,7 +727,7 @@ function animateCards(){
 	setTimeout(function(){
 		$('#_b2').show();
 		$('#_b2').animate({
-			'left' : '-204px',
+			'left' : '-193px',
 			'top' : '0',
 			'transform' : 'rotate(0deg)',
 		},500);

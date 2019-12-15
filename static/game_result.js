@@ -814,7 +814,7 @@ socket.on("playerWin",function(data){
 
 
 socket.on('loadData',function(data){
-
+	console.log(data);
 	lastWinner = null;
 	row_indicator = 0;
 	row_down_indicator = 0;

@@ -69,8 +69,11 @@ server.listen(server_port , server_ip_address , function(){
 	console.log('Listening on' + server_ip_address + ', port' + server_port);	
 })
 
-// server.listen(5000, function() { console.log('Starting server on port
-// 5000'); });
+
+// server.listen(5000,function(){
+// 	console.log('Starting server on port5000');
+// })
+
 
 var draw_cards = [
 	{
