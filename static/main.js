@@ -688,14 +688,12 @@ function animateCards(){
 
 	// NEW 
 
-
-	$('#_p1').show();
-	$('#_p1').animate({
-		'left' : '-358px',
+	$('#_p2').show();
+	$('#_p2').animate({
+		'left' : '-428px',
 		'top' : '0',
 		'transform' : 'rotate(0deg)',
 	},500);
-	
 
 
 	setTimeout(function(){
@@ -712,9 +710,9 @@ function animateCards(){
 
 	setTimeout(function(){
 		
-		$('#_p2').show();
-		$('#_p2').animate({
-			'left' : '-428px',
+		$('#_p1').show();
+		$('#_p1').animate({
+			'left' : '-358px',
 			'top' : '0',
 			'transform' : 'rotate(0deg)',
 		},500);

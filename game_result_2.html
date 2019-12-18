@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>Baccarat</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui" />
+	<link rel="stylesheet" type="text/css" href="assets/css/gr.css">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<!-- Popper JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</head>
+
+<script src="/socket.io/socket.io.js"></script>
+
+<body>
+	<div class="game">
+		<div class="chips_top"></div>
+
+		<div class="chips_bottom"></div>
+		<button id="hashbtn">Hash Code + Salt Code 결과값 조회하기</button>
+		<div class="score">
+			<div class="banker_s">
+				<div class="left_s" id="banker_score">0</div>
+				<div class="right_s" id="banker_pair">0</div>
+			</div>
+			<div class="banker_s">
+				<div class="left_s" id="player_score">0</div>
+				<div class="right_s" id="player_pair">0</div>
+			</div>
+			<div class="banker_s">
+				<div class="left_s" id="tie_score">0</div>
+				<div class="right_s" id="natural_score">0</div>
+			</div>
+
+	</div>
+</body>
+<script type="text/javascript" src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
+<script type="text/javascript" src="static/game_result_2.js"></script>
+</html>
+
+<!-- 			<div class="cb_holder">
+				
+				<div class="chipsB">
+					<img src="assets/images/Components/B2.png">
+					<img src="assets/images/Components/P2.png">
+				</div>
+				<div class="chipsB">
+					<img src="assets/images/Components/B2.png">
+					<img src="assets/images/Components/P2.png">
+				</div>
+				<div class="chipsB">
+					<img src="assets/images/Components/B2.png">
+					<img src="assets/images/Components/P2.png">
+				</div>
+				<div class="chipsB">
+					<img src="assets/images/Components/B2.png">
+					<img src="assets/images/Components/P2.png">
+				</div>
+				<div class="chipsB">
+					<img src="assets/images/Components/B2.png">
+					<img src="assets/images/Components/P2.png">
+				</div>
+				<div class="chipsB" >
+					<img src="assets/images/Components/B2.png">
+					<img src="assets/images/Components/P2.png">
+				</div>
+			</div> -->
