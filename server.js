@@ -718,7 +718,6 @@ var rounds = (parseInt(roundy) + parseInt(roundx)) + 1;
 setInterval(function(){
 	var seconds = 60 - moment().format('ss');
 
-
 	io.sockets.emit('seconds', {seconds});
 
 	if (seconds == 58) {
@@ -751,7 +750,6 @@ setInterval(function(){
 					 		roundCount++;
 					 		console.log('ROUND COUNT IS '+ roundCount)
 					 		if (roundCount == 37) {
-					 			
 					 			table_count += 1;
 					 			roundCount = 0;
 					 		}
