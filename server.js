@@ -1007,7 +1007,7 @@ io.on('connection',function(socket){
 						var query = {'table_count' : result[0]['table_count']};
 						console.log(query)
 						dbo.collection('game').find(query).toArray(function(err , results){
-							io.to(socketid).emit('loadData' , results);
+							socket.emit('loadData' , results);
 						})
 
 					});
