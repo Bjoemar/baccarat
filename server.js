@@ -71,6 +71,14 @@ server.listen(server_port , server_ip_address , function(){
 })
 
 
+
+MongoClient.connect(url, function(err , db){
+	var dbo = db.db('baccarat');
+	dbo.collection('game').remove();
+});
+
+
+
 // server.listen(5000,function(){
 // 	console.log('Starting server on port5000');
 // })
