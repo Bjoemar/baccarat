@@ -72,12 +72,6 @@ server.listen(server_port , server_ip_address , function(){
 
 
 
-MongoClient.connect(url, function(err , db){
-	var dbo = db.db('baccarat');
-	dbo.collection('game').remove();
-});
-
-
 
 // server.listen(5000,function(){
 // 	console.log('Starting server on port5000');
@@ -873,16 +867,7 @@ setInterval(function(){
 
 
 
-		if (gameResult.secondLeftVal == null && gameResult.secondRightVal == null) {
 
-			if (winner == 'banker') {
-				io.sockets.emit("bankerWin", {"bankerPair" : gameResult.bankerPair , "playerPair" : gameResult.playerPair , "playerNatural" : gameResult.playerNatural , "BankerNatural" : gameResult.BankerNatural});
-			}else if(winner == 'tie'){
-				io.sockets.emit("tieGame", {"bankerPair" : gameResult.bankerPair , "playerPair" : gameResult.playerPair , "playerNatural" : gameResult.playerNatural , "BankerNatural" : gameResult.BankerNatural});
-			}else if (winner == 'player'){
-				io.sockets.emit("playerWin", {"bankerPair" : gameResult.bankerPair , "playerPair" : gameResult.playerPair , "playerNatural" : gameResult.playerNatural , "BankerNatural" : gameResult.BankerNatural});
-			}
-		}else {
 
 			setTimeout(function(){
 
@@ -898,9 +883,6 @@ setInterval(function(){
 				}
 
 			},11000);
-		}
-
-
 
 		// io.sockets.emit("datavalue", {"playerRes1" : gameResult.playerRes1, "playerRes2" : gameResult.playerRes2 , "BankerRes1" : gameResult.BankerRes1 , "BankerRes2" : gameResult.BankerRes2 , "ep2card" : gameResult.ep2card, "eb2card" : gameResult.eb2card});
 
@@ -910,11 +892,11 @@ setInterval(function(){
 
 		setTimeout(function(){
 			if (winner == 'banker') {
-				io.sockets.emit("bankerWin", {"bankerPair" : gameResult.bankerPair , "playerPair" : gameResult.playerPair , "playerNatural" : gameResult.playerNatural , "BankerNatural" : gameResult.BankerNatural});
+				io.sockets.emit("bankerWin", {"bankerPair" : gameResult.bankerPair , "playerPair" : gameResult.playerPair , "playerNatural" : gameResult.playerNatural , "BankerNatural" : gameResult.BankerNatural , 'winner' : winner});
 			}else if(winner == 'tie'){
-				io.sockets.emit("tieGame", {"bankerPair" : gameResult.bankerPair , "playerPair" : gameResult.playerPair , "playerNatural" : gameResult.playerNatural , "BankerNatural" : gameResult.BankerNatural});
+				io.sockets.emit("tieGame", {"bankerPair" : gameResult.bankerPair , "playerPair" : gameResult.playerPair , "playerNatural" : gameResult.playerNatural , "BankerNatural" : gameResult.BankerNatural , 'winner' : winner});
 			}else if (winner == 'player'){
-				io.sockets.emit("playerWin", {"bankerPair" : gameResult.bankerPair , "playerPair" : gameResult.playerPair , "playerNatural" : gameResult.playerNatural , "BankerNatural" : gameResult.BankerNatural});
+				io.sockets.emit("playerWin", {"bankerPair" : gameResult.bankerPair , "playerPair" : gameResult.playerPair , "playerNatural" : gameResult.playerNatural , "BankerNatural" : gameResult.BankerNatural , 'winner' : winner});
 			}
 
 			setTimeout(function(){
