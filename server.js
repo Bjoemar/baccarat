@@ -1001,7 +1001,7 @@ io.on('connection',function(socket){
 			var dbo = db.db('baccarat');
 			// var mysort = {table_count : -1};
 
-			dbo.collection('game').find({}, {table_count: -1 }).toArray(function(err , result){
+			dbo.collection('game').find({table_count: -1 }).toArray(function(err , result){
 
 				
 				if (result.length > 0) {
