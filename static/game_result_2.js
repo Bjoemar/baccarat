@@ -22,7 +22,7 @@ var bottom_empty = true;
 var loadprev = false;
 
 socket.on('seconds',function(data){
-	if (data.seconds > 10 || data.seconds < 55) {
+	if (data.seconds > 10 || data.seconds < 40) {
 		loadprev = true;
 	} else {
 		loadprev = false;
