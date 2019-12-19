@@ -973,7 +973,7 @@ io.on('connection',function(socket){
 
 			dbo.collection('game').find().limit(1).sort(mysort).toArray(function(err , result){
 				if (err) throw err;
-				io.to(socketid).emit('loadDataGame' , result);
+				socket.emit('loadDataGame' , result);
 				db.close();
 			})
 		})
