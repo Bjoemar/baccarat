@@ -1010,7 +1010,7 @@ io.on('connection',function(socket){
 			// console.log(roundCount);
 			var query = {'table_count' : table_count};
 
-			dbo.collection('game').find(query).sort({_id: -1 }).toArray(function(err , result){
+			dbo.collection('game').find(query).toArray(function(err , result){
 
 					// console.log(result)
 				if (result.length > 0) {
