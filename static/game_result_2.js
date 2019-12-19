@@ -337,9 +337,9 @@ function runToptables(data) {
 		{
 			tieChips(prev_Win);
 
-			// b_tie()
-			// b_playerPair(obj['playerPair']);
-			// b_bankerPair(obj['bankerPair']);
+			b_tie()
+			b_playerPair(obj['playerPair']);
+			b_bankerPair(obj['bankerPair']);
 			tie_score++;
 			$('#tie_score').html(tie_score);
 		
@@ -349,9 +349,9 @@ function runToptables(data) {
 			if (winner == 'banker')
 			{
 				bankerInside();
-				// b_banker();
-				// b_playerPair(obj['playerPair']);
-				// b_bankerPair(obj['bankerPair']);
+				b_banker();
+				b_playerPair(obj['playerPair']);
+				b_bankerPair(obj['bankerPair']);
 					// 	}
 				prev_Win = winner;
 				banker_score++;
@@ -361,9 +361,9 @@ function runToptables(data) {
 			else if (winner == 'player')
 			{
 				playerInside();
-				// b_player();
-				// b_playerPair(obj['playerPair']);
-				// b_bankerPair(obj['bankerPair']);
+				b_player();
+				b_playerPair(obj['playerPair']);
+				b_bankerPair(obj['bankerPair']);
 					// 	}
 				prev_Win = winner;
 				player_score++;
@@ -379,9 +379,9 @@ function runToptables(data) {
 			if (winner == 'banker')
 			{
 				bankerChips();
-				// b_banker();
-				// b_playerPair(obj['playerPair']);
-				// b_bankerPair(obj['bankerPair']);
+				b_banker();
+				b_playerPair(obj['playerPair']);
+				b_bankerPair(obj['bankerPair']);
 				banker_score++;
 				$('#banker_score').html(banker_score)
 
@@ -392,9 +392,9 @@ function runToptables(data) {
 			else if (winner == 'player')
 			{
 				playerChips();
-				// b_player();
-				// b_playerPair(obj['playerPair']);
-				// b_bankerPair(obj['bankerPair']);
+				b_player();
+				b_playerPair(obj['playerPair']);
+				b_bankerPair(obj['bankerPair']);
 				player_score++;
 				$('#player_score').html(player_score)
 					// 	}
