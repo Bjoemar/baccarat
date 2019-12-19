@@ -129,6 +129,71 @@ body {
 	top: 0;
 }
 
+.top_chips {
+	height: 24px;
+	width: 24px;
+	border-radius: 100px;
+	position: relative;
+}
+
+.banker_obj_chips {
+	border:4px solid #de4555;
+}
+
+
+.player_obj_chips {
+	border:4px solid #377ffb;
+}
+
+.banker_pair_dot {
+	position: absolute;
+	height: 9px;
+	width: 9px;
+	border-radius: 100px;
+	background-color: red;
+	top: -3px;
+	left: -3px;
+	z-index: 5;
+	box-shadow: 1px 1px 2px #fefefe;
+}
+
+
+
+.player_pair_dot {
+	position: absolute;
+	height: 9px;
+	width: 9px;
+	border-radius: 100px;
+	background-color: #6093eb;
+	bottom: -3px;
+	right: -3px;
+	z-index: 5;
+	box-shadow: 1px 1px 2px #fefefe;
+}
+
+.natural_dot {
+	border-radius: 100px;
+	margin: 4.5px;
+	height: 7px;
+	width: 7px;
+	background-color: #a09f9f;
+}
+
+.tie_line {
+	transform: rotateZ(45deg);
+    width: 4px;
+    height: 25px;
+    background-color: #51b5a6;
+    position: absolute;
+    top: -4px;
+    left: 6px;
+}
+
+
+
+
+
+
 
 
 @media only screen and (max-width: 650px) {

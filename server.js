@@ -30,6 +30,15 @@ var MongoClient = require('mongodb').MongoClient;
 var url = "mongodb+srv://joemar12:joemar12@baccarat-oh6ud.mongodb.net/test?retryWrites=true&w=majority";
 
 
+// MongoClient.connect(url, function(err , db){
+
+// 	var dbo = db.db('baccarat');
+// 	dbo.collection('game').remove();
+// });
+
+
+
+
 var table_count = 0;
 var lastWinner = null;
 var roundCount = 0;
@@ -1005,8 +1014,7 @@ io.on('connection',function(socket){
 						var dbo = db.db('baccarat');
 
 						var query = {'table_count' : result[0]['table_count']};
-						console.log(query)
-						dbo.collection('game').find(query).toArray(function(err , results){
+						dbo.collection('game').find(query).limit(200).toArray(function(err , results){
 							socket.emit('loadData' , results);
 						})
 
