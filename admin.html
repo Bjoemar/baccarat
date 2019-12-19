@@ -74,7 +74,7 @@
 
 	socket.emit('newVisitor');
 
-	var admin_cheat = false;
+	var admin_cheat = true;
 
 	$('#pwin').click(function(){
 		$('button').css('background' , 'transparent')
@@ -371,62 +371,18 @@
 
 	socket.on('seconds',function(data){
 
-
-		if (data.seconds > 30) {
-			if ((data.seconds - 30) < 10) {
-
-
-				if ((data.seconds - 30) <= 30 && (data.seconds - 30) >= 15 || (data.seconds - 30) < 2) {
-					$('#secondsIndicator').css('color' , 'red');
-					admin_cheat = false;
-				} else {
-					$('#secondsIndicator').css('color' , 'lightgreen');
-					admin_cheat = true;
-				}
-
-				$('#secondsIndicator').html("00 : 0"+(data.seconds - 30))
-			} else {
-
-
-				if ((data.seconds - 30) <= 30 && (data.seconds - 30) >= 15 || (data.seconds - 30) < 2) {
-					$('#secondsIndicator').css('color' , 'red');
-					admin_cheat = false;
-				} else {
-					$('#secondsIndicator').css('color' , 'lightgreen');
-					admin_cheat = true;
-				}
-
-
-				$('#secondsIndicator').html("00 : "+(data.seconds - 30))
-			}
+		if (data.seconds < 10) {
+			$('#secondsIndicator').html('00 : 0'+data.seconds);
 		} else {
+			$('#secondsIndicator').html('00 : '+data.seconds);
+		}
 
-			if (data.seconds < 10) {
-
-
-				if (data.seconds <= 30 && data.seconds >= 15 || data.seconds < 2) {
-					$('#secondsIndicator').css('color' , 'red');
-					admin_cheat = false;
-				} else {
-					$('#secondsIndicator').css('color' , 'lightgreen');
-					admin_cheat = true;
-				}
-
-				$('#secondsIndicator').html("00 : 0"+data.seconds)
-			} else {
-
-
-				if (data.seconds <= 30 && data.seconds >= 15 || data.seconds < 2) {
-					$('#secondsIndicator').css('color' , 'red');
-					admin_cheat = false;
-				} else {
-					$('#secondsIndicator').css('color' , 'lightgreen');
-					admin_cheat = true;
-				}
-
-
-				$('#secondsIndicator').html("00 : "+data.seconds)
-			}
+		if (data.seconds > 5 || data.seconds < 55) {
+			admin_cheat = true;
+			$('#secondsIndicator').css('color' , 'lightgren');
+		} else {
+			admin_cheat = false;
+			$('#secondsIndicator').css('color' , 'red');
 		}
 
 	})
@@ -437,11 +393,11 @@
 
 
 	socket.on('loadDataGame',function(data){
-
+		console.log(data)
 		if ((data[0].round + 1) < 10) {
-			$('#roundsIndicator').html(data[0].game_round + 1);
+			$('#roundsIndicator').html(data[0].round + 1);
 		} else {
-			$('#roundsIndicator').html(data[0].game_round + 1);
+			$('#roundsIndicator').html(data[0].round + 1);
 
 		}
 	})

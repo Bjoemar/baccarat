@@ -940,21 +940,21 @@ io.on('connection',function(socket){
 		gameResult['secondRightVal'] = data.secondRightVal;
 
 		 // Animation Result
-		 gameResult['playerRes1'] = getShape() + data.playerRes1;
-		 gameResult['playerRes2'] = getShape() + data.playerRes2;
-		 gameResult['BankerRes1'] = getShape() + data.BankerRes1;
-		 gameResult['BankerRes2'] = getShape() + data.BankerRes2;
+		 gameResult['playerRes1'] = getShape() +'_'+ data.playerRes1;
+		 gameResult['playerRes2'] = getShape() +'_'+ data.playerRes2;
+		 gameResult['BankerRes1'] = getShape() +'_'+ data.BankerRes1;
+		 gameResult['BankerRes2'] = getShape() +'_'+ data.BankerRes2;
 
 		 if (data.ep2card == "") {
 		 	gameResult['ep2card'] = "";
 		 } else {
-		 	gameResult['ep2card'] = getShape() + data.ep2card;
+		 	gameResult['ep2card'] = getShape() +'_'+ data.ep2card;
 		 }
 
 		 if (data.eb2card == "") {
 		 	gameResult['eb2card'] = "";
 		 } else {
-		 	gameResult['eb2card'] = getShape() + data.eb2card;
+		 	gameResult['eb2card'] = getShape() +'_'+ data.eb2card;
 		 }
 		 
 			
