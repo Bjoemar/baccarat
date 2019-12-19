@@ -721,20 +721,19 @@ function getChance(){
 	return Math.floor(Math.random() * 100) + 1;
 }
 
-var roundx = moment().format('HH') * 60;
-var roundy = moment().format('mm');
-var rounds = (parseInt(roundy) + parseInt(roundx)) + 1;
-
 
 
 setInterval(function(){
 	var seconds = 60 - moment().format('ss');
+	var roundx = moment().format('HH') * 60;
+	var roundy = moment().format('mm');
+	var rounds = (parseInt(roundy) + parseInt(roundx)) + 1;
+
+
 
 	io.sockets.emit('seconds', {seconds});
 
 	if (seconds == 58) {
-
-		rounds++;
 
 		var secret_code = rounds+'baccarat'+moment().format('DD-MM-YYYY');
 		var hash = crypto.createHmac('sha256',secret_code).digest('hex'); // Hash of the game
