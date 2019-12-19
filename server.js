@@ -43,8 +43,10 @@ setInterval(function(){
 	MongoClient.connect(url, function(err , db){
 		var dbo = db.db("baccarat");
 		dbo.collection('game').find().sort({table_count : -1}).limit(1).toArray(function(err , result){
-			roundCount = result[0]['roundCount'];
-			table_count =  result[0]['table_count'];
+			if (result.length > 0) {	
+				roundCount = result[0]['roundCount'];
+				table_count =  result[0]['table_count'];
+			}
 
 		})
 	});
@@ -81,16 +83,16 @@ app.get('/d216562cb392efa26d79cd4a8a5938cb', function(request , response) {
 app.use(express.static('./'));
 
 
-server.listen(server_port , server_ip_address , function(){
-	console.log('Listening on' + server_ip_address + ', port' + server_port);	
-})
-
-
-
-
-// server.listen(5000,function(){
-// 	console.log('Starting server on port5000');
+// server.listen(server_port , server_ip_address , function(){
+// 	console.log('Listening on' + server_ip_address + ', port' + server_port);	
 // })
+
+
+
+
+server.listen(5000,function(){
+	console.log('Starting server on port5000');
+})
 
 
 var draw_cards = [
@@ -1013,6 +1015,7 @@ io.on('connection',function(socket){
 				if (result.length > 0) {
 					if (err) throw err;
 						socket.emit('loadData' , result);
+						console.log(result)
 					}
 				db.close();
 
