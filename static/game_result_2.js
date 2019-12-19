@@ -20,7 +20,8 @@ var cb_content = 0;
 var bottom_empty = true;
 
 socket.on('loadData',function(data){
-
+	console.log(data)
+	rl = data[0]['roundCount'];
 	runToptables(data);
 
 });

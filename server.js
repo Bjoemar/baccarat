@@ -30,11 +30,6 @@ var MongoClient = require('mongodb').MongoClient;
 var url = "mongodb+srv://joemar12:joemar12@baccarat-oh6ud.mongodb.net/test?retryWrites=true&w=majority";
 
 
-// MongoClient.connect(url, function(err , db){
-
-// 	var dbo = db.db('baccarat');
-// 	dbo.collection('game').remove();
-// });
 
 
 
@@ -43,6 +38,17 @@ var table_count = 0;
 var lastWinner = null;
 var roundCount = 0;
 
+setInterval(function(){
+
+	MongoClient.connect(url, function(err , db){
+		var dbo = db.db("baccarat");
+		dbo.collection('game').find().sort({table_count : -1}).limit(1).toArray(function(err , result){
+			roundCount = result[0]['roundCount'];
+			table_count =  result[0]['table_count'];
+
+		})
+	});
+},1000)
 
 app.set('port',5000);
 
@@ -730,7 +736,6 @@ setInterval(function(){
 	var rounds = (parseInt(roundy) + parseInt(roundx)) + 1;
 
 
-
 	io.sockets.emit('seconds', {seconds});
 
 	if (seconds == 58) {
@@ -832,10 +837,10 @@ setInterval(function(){
 			  	setTimeout(function(){
 
 			  	
-			  		dbo.collection("game").insertOne(myobj, function(err, res){
-					    console.log("ROUND "+rounds+" RECORDER");
-					    db.close();
-					}); //End of insertOne
+			  // 		dbo.collection("game").insertOne(myobj, function(err, res){
+					//     console.log("ROUND "+rounds+" RECORDER");
+					//     db.close();
+					// }); //End of insertOne
 
 			  	},10000)
 
@@ -999,11 +1004,12 @@ io.on('connection',function(socket){
 			if (err) throw err;
 
 			var dbo = db.db('baccarat');
-			// var mysort = {table_count : -1};
+			// console.log(roundCount);
+			var query = {'table_count' : table_count};
 
-			dbo.collection('game').find().sort({table_count: -1 }).limit(100).toArray(function(err , result){
+			dbo.collection('game').find(query).sort({_id: -1 }).toArray(function(err , result){
 
-					console.log(result)
+					// console.log(result)
 				if (result.length > 0) {
 					if (err) throw err;
 						socket.emit('loadData' , result);
