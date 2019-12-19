@@ -19,9 +19,20 @@ var cb_content = 0;
 
 var bottom_empty = true;
 
+var loadprev = false;
+
+socket.on('seconds',function(data){
+	if (data.seconds > 10 || data.seconds < 55) {
+		loadprev = true;
+	} else {
+		loadprev = false;
+	}
+})
 socket.on('loadData',function(data){
 	rl = data[0]['roundCount'];
-	runToptables(data);
+	if (loadprev) {
+		runToptables(data);
+	}
 
 });
 
