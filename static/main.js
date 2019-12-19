@@ -91,24 +91,24 @@ socket.on('loadDataGame',function(data){
 
 socket.on('player_card1',function(data){
 
-	$('#p1').attr('src','../assets/images/cards/'+data.playerRes1+'.png');
-	$('#_p1').addClass('showCard');
-	$('#_p1').css({
+	$('#p2').attr('src','../assets/images/cards/'+data.playerRes1+'.png');
+	$('#_p2').addClass('showCard');
+	$('#_p2').css({
 		'opacity' : '0',
 		'transition' : 'all 0.7s',
 	});
 
-	$('#p1').addClass('showCard');
+	$('#p2').addClass('showCard');
 
 
 	setTimeout(function(){
-		$('#_p1').removeClass('showCard');
-		$('#_p1').addClass('hideCard');
+		$('#_p2').removeClass('showCard');
+		$('#_p2').addClass('hideCard');
 		
-		$('#p1').removeClass('showCard');
-		$('#p1').addClass('hideCard');
+		$('#p2').removeClass('showCard');
+		$('#p2').addClass('hideCard');
 
-		$('#p1').css({
+		$('#p2').css({
 			'opacity' : '1',
 			'transition' : 'all 0.7s',
 		})
@@ -166,25 +166,25 @@ socket.on('player_card2',function(data){
 
 	// $('#_p2').addClass('unrotate');
 
-	$('#p2').attr('src','../assets/images/cards/'+data.playerRes2+'.png');
+	$('#p1').attr('src','../assets/images/cards/'+data.playerRes2+'.png');
 
-	$('#_p2').addClass('showCard');
-	$('#_p2').css({
+	$('#_p1').addClass('showCard');
+	$('#_p1').css({
 		'opacity' : '0',
 		'transition' : 'all 0.7s',
 	});
 
-	$('#p2').addClass('showCard');
+	$('#p1').addClass('showCard');
 
 
 	setTimeout(function(){
-		$('#_p2').removeClass('showCard');
-		$('#_p2').addClass('hideCard');
+		$('#_p1').removeClass('showCard');
+		$('#_p1').addClass('hideCard');
 		
-		$('#p2').removeClass('showCard');
-		$('#p2').addClass('hideCard');
+		$('#p1').removeClass('showCard');
+		$('#p1').addClass('hideCard');
 
-		$('#p2').css({
+		$('#p1').css({
 			'opacity' : '1',
 			'transition' : 'all 0.7s',
 		})
@@ -196,6 +196,10 @@ socket.on('player_card2',function(data){
 
 
 })
+
+socket.on('game_round',function(data){
+	$('#time_text').html(data.game_round);
+});
 
 socket.on('banker_card2',function(data){
 
