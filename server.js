@@ -1009,6 +1009,7 @@ io.on('connection',function(socket){
 						var dbo = db.db('baccarat');
 						var query = {'table_count' : result[0]['table_count']};
 						dbo.collection('game').find(query).limit(200).toArray(function(err , results){
+							console.log(results)
 							socket.emit('loadData' , results);
 						});
 					}
