@@ -1001,9 +1001,9 @@ io.on('connection',function(socket){
 			var dbo = db.db('baccarat');
 			// var mysort = {table_count : -1};
 
-			dbo.collection('game').find({table_count: -1 }).toArray(function(err , result){
+			dbo.collection('game').find().sort({table_count: -1 }).limit(100).toArray(function(err , result){
 
-				
+					console.log(result)
 				if (result.length > 0) {
 					if (err) throw err;
 						socket.emit('loadData' , result);
