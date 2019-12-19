@@ -46,6 +46,7 @@ setInterval(function(){
 			if (result.length > 0) {	
 				roundCount = result[0]['roundCount'];
 				table_count =  result[0]['table_count'];
+				lastWinner = result[0]['winner'];
 			}
 
 		})
