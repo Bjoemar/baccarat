@@ -840,10 +840,10 @@ setInterval(function(){
 			  	setTimeout(function(){
 
 			  	
-			  // 		dbo.collection("game").insertOne(myobj, function(err, res){
-					//     console.log("ROUND "+rounds+" RECORDER");
-					//     db.close();
-					// }); //End of insertOne
+			  		dbo.collection("game").insertOne(myobj, function(err, res){
+					    console.log("ROUND "+rounds+" RECORDER");
+					    db.close();
+					}); //End of insertOne
 
 			  	},10000)
 
