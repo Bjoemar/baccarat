@@ -84,16 +84,16 @@ app.get('/d216562cb392efa26d79cd4a8a5938cb', function(request , response) {
 app.use(express.static('./'));
 
 
-// server.listen(server_port , server_ip_address , function(){
-// 	console.log('Listening on' + server_ip_address + ', port' + server_port);	
-// })
-
-
-
-
-server.listen(5000,function(){
-	console.log('Starting server on port5000');
+server.listen(server_port , server_ip_address , function(){
+	console.log('Listening on' + server_ip_address + ', port' + server_port);	
 })
+
+
+
+
+// server.listen(5000,function(){
+// 	console.log('Starting server on port5000');
+// })
 
 
 var draw_cards = [
