@@ -999,20 +999,14 @@ io.on('connection',function(socket){
 			if (err) throw err;
 
 			var dbo = db.db('baccarat');
-			var mysort = {_id : -1};
+			// var mysort = {table_count : -1};
 
-			dbo.collection('game').find().sort(mysort).limit(1).toArray(function(err , result){
+			dbo.collection('game').find({}, {table_count: -1 }).toArray(function(err , result){
 
+				
 				if (result.length > 0) {
-
 					if (err) throw err;
-						var dbo = db.db('baccarat');
-						var query = {'table_count' : result[0]['table_count']};
-						console.log(query)
-						dbo.collection('game').find(query).limit(200).toArray(function(err , results){
-							console.log(results)
-							socket.emit('loadData' , results);
-						});
+						socket.emit('loadData' , result);
 					}
 				db.close();
 
