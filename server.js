@@ -1008,6 +1008,7 @@ io.on('connection',function(socket){
 					if (err) throw err;
 						var dbo = db.db('baccarat');
 						var query = {'table_count' : result[0]['table_count']};
+						console.log(query)
 						dbo.collection('game').find(query).limit(200).toArray(function(err , results){
 							console.log(results)
 							socket.emit('loadData' , results);
