@@ -20,7 +20,6 @@ var cb_content = 0;
 var bottom_empty = true;
 
 socket.on('loadData',function(data){
-	console.log(data)
 	rl = data[0]['roundCount'];
 	runToptables(data);
 
@@ -539,7 +538,7 @@ function b_tie() {
 
 function playerPair(con) {
 	if (con) {
-		var chips = $('.chips_top .c_holder').last().find('.chips').find('.top_chips').last().append('<div class="player_pair_dot"></div>')
+		var chips = $('.chips_top .c_holder').last().find('.chips').find('img').first().next().next().removeClass('hidden');
 		player_pair++;
 		$('#player_pair').html(player_pair)
 	}
@@ -547,7 +546,7 @@ function playerPair(con) {
 
 function bankerPair(con) {
 	if (con) {
-		$('.chips_top .c_holder').last().find('.chips').find('.top_chips').last().append('<div class="banker_pair_dot"></div>')
+		$('.chips_top .c_holder').last().find('.chips').find('img').last().prev().prev().removeClass('hidden');
 		banker_pair++;
 		$('#banker_pair').html(banker_pair);
 	}
@@ -556,7 +555,7 @@ function bankerPair(con) {
 
 function natural(con) {
 	if (con) {
-		$('.chips_top .c_holder').last().find('.chips').find('.top_chips').last().append('<div class="natural_dot"></div>')
+		$('.chips_top .c_holder').last().find('.chips').find('img').last().prev().removeClass('hidden');
 		natural_score++;
 		$('#natural_score').html(natural_score);
 	}
@@ -586,44 +585,66 @@ function tieChips(win) {
 	// console.log(win)
 	if (win == 'player') {
 		$('.chips_top .c_holder').last().append('<div class="chips">'+
-			'<div class="player_obj_chips top_chips">'+
-			'<div class="tie_line"></div>'+
-			'</div>'+'</div>');
+			'<img class="hidden" src="assets/images/Components/B.png">'+
+			'<img src="assets/images/Components/P.png">'+
+			'<img class="hidden" src="assets/images/Components/ps.png">'+
+			'<img class="hidden" src="assets/images/Components/bs.png">'+
+			'<img class="hidden" src="assets/images/Components/ntr.png">'+
+			'<img src="assets/images/Components/tie_icon.png">'+'</div>')
 
 	} else if (win == 'banker') {
 		$('.chips_top .c_holder').last().append('<div class="chips">'+
-			'<div class="banker_obj_chips top_chips">'+
-			'<div class="tie_line"></div>'+
-			'</div>'+'</div>')
+			'<img src="assets/images/Components/B.png">'+
+			'<img class="hidden" src="assets/images/Components/P.png">'+
+			'<img class="hidden" src="assets/images/Components/ps.png">'+
+			'<img class="hidden" src="assets/images/Components/bs.png">'+
+			'<img class="hidden" src="assets/images/Components/ntr.png">'+
+			'<img  src="assets/images/Components/tie_icon.png">'+'</div>')
 	}
 }
 
 function bankerChips() {
 	$('.chips_top').append('<div class="c_holder">'+
 		'<div class="chips">'+
-		'<div class="banker_obj_chips top_chips">'+
-		'</div>'+'</div></div>');
+		'<img src="assets/images/Components/B.png">'+
+		'<img class="hidden" src="assets/images/Components/P.png">'+
+		'<img class="hidden" src="assets/images/Components/ps.png">'+
+		'<img class="hidden" src="assets/images/Components/bs.png">'+
+		'<img class="hidden" src="assets/images/Components/ntr.png">'+
+		'<img class="hidden" src="assets/images/Components/tie_icon.png">'+'</div></div>');
 }
 
 
 function playerChips() {
 	$('.chips_top').append('<div class="c_holder">'+
-			'<div class="chips">'+
-			'<div class="player_obj_chips top_chips">'+
-			'</div>'+'</div></div>');
+		'<div class="chips">'+
+		'<img class="hidden" src="assets/images/Components/B.png">'+
+		'<img src="assets/images/Components/P.png">'+
+		'<img class="hidden" src="assets/images/Components/ps.png">'+
+		'<img class="hidden" src="assets/images/Components/bs.png">'+
+		'<img class="hidden" src="assets/images/Components/ntr.png">'+
+		'<img class="hidden" src="assets/images/Components/tie_icon.png">'+'</div></div>');
 }
 
 
 function bankerInside(){
 	$('.chips_top .c_holder').last().append('<div class="chips">'+
-		'<div class="banker_obj_chips top_chips">'+
-		'</div>'+'</div>')
+		'<img src="assets/images/Components/B.png">'+
+		'<img class="hidden" src="assets/images/Components/P.png">'+
+		'<img class="hidden" src="assets/images/Components/ps.png">'+
+		'<img class="hidden" src="assets/images/Components/bs.png">'+
+		'<img class="hidden" src="assets/images/Components/ntr.png">'+
+		'<img class="hidden" src="assets/images/Components/tie_icon.png">'+'</div>')
 }
 
 
 function playerInside() {
 	$('.chips_top .c_holder').last().append('<div class="chips">'+
-			'<div class="player_obj_chips top_chips">'+
-			'</div>'+'</div>')
+		'<img class="hidden" src="assets/images/Components/B.png">'+
+		'<img src="assets/images/Components/P.png">'+
+		'<img class="hidden" src="assets/images/Components/ps.png">'+
+		'<img class="hidden" src="assets/images/Components/bs.png">'+
+		'<img class="hidden" src="assets/images/Components/ntr.png">'+
+		'<img class="hidden" src="assets/images/Components/tie_icon.png">'+'</div>')
 }
 
