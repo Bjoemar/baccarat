@@ -915,7 +915,7 @@ setInterval(function(){
 
 			setTimeout(function(){
 				io.sockets.emit('gameRounds',{'game_round' : rounds + 1});
-			},15000)
+			},45000)
 
 			setTimeout(function(){
 				gameResult = [];
