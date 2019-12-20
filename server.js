@@ -838,11 +838,10 @@ setInterval(function(){
 		  		fs.writeFileSync('result.json', data);
 			  	setTimeout(function(){
 
-			  	
-			  // 		dbo.collection("game").insertOne(myobj, function(err, res){
-					//     console.log("ROUND "+rounds+" RECORDER");
-					//     db.close();
-					// }); //End of insertOne
+			  		dbo.collection("game").insertOne(myobj, function(err, res){
+					    console.log("ROUND "+rounds+" RECORDER");
+					    db.close();
+					}); //End of insertOne
 
 			  	},10000)
 

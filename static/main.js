@@ -23,7 +23,7 @@ socket.on('seconds',function(data){
 	if (data.seconds == 60) {
 		animateCards();
 	} else if (data.seconds == 10) {
-		cleanCard()
+		cleanCard();
 	}
 })
 
@@ -738,12 +738,11 @@ function animateCards(){
 
 	},3000);
 
-
-
-
-
-
 }
+
+socket.on('gameRounds',function(data){
+	$('#round_text').html('ROUND '+data.game_round);
+})
 
 // animateCards();
 
