@@ -33,8 +33,8 @@ socket.on('loadDataGame',function(data){
 	
 	if (getPast) {
 
-		$('#p1').attr('src','../assets/images/cards/'+data[0].playerRes1+'.png');
-		$('#p2').attr('src','../assets/images/cards/'+data[0].playerRes2+'.png');
+		$('#p2').attr('src','../assets/images/cards/'+data[0].playerRes1+'.png');
+		$('#p1').attr('src','../assets/images/cards/'+data[0].playerRes2+'.png');
 		$('#b1').attr('src','../assets/images/cards/'+data[0].BankerRes1+'.png');
 		$('#b2').attr('src','../assets/images/cards/'+data[0].BankerRes2+'.png');
 		$('#p1').css('opacity' , '1');
