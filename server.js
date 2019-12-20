@@ -46,6 +46,9 @@ MongoClient.connect(url, function(err , db){
 			roundCount = result[0]['roundCount'];
 			table_count =  result[0]['table_count'];
 			lastWinner = result[0]['winner'];
+			console.log(roundCount);
+			console.log(table_count);
+			console.log(lastWinner);
 		}
 	})
 });
