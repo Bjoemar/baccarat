@@ -92,31 +92,34 @@ socket.on('loadDataGame',function(data){
 socket.on('player_card1',function(data){
 
 	$('#p2').attr('src','../assets/images/cards/'+data.playerRes1+'.png');
-	$('#_p2').addClass('showCard');
-	$('#_p2').css({
-		'opacity' : '0',
-		'transition' : 'all 0.7s',
-	});
-
-	$('#p2').addClass('showCard');
-
-
 	setTimeout(function(){
-		$('#_p2').removeClass('showCard');
-		$('#_p2').addClass('hideCard');
-		
-		$('#p2').removeClass('showCard');
-		$('#p2').addClass('hideCard');
 
-		$('#p2').css({
-			'opacity' : '1',
+		$('#_p2').addClass('showCard');
+		$('#_p2').css({
+			'opacity' : '0',
 			'transition' : 'all 0.7s',
-		})
-		$('#playerScore').show();
-		$('#bankerScore').show();
-		$('#playerScore').html(data.playerTotal)
+		});
 
-	},200)
+		$('#p2').addClass('showCard');
+
+
+		setTimeout(function(){
+			$('#_p2').removeClass('showCard');
+			$('#_p2').addClass('hideCard');
+			
+			$('#p2').removeClass('showCard');
+			$('#p2').addClass('hideCard');
+
+			$('#p2').css({
+				'opacity' : '1',
+				'transition' : 'all 0.7s',
+			})
+			$('#playerScore').show();
+			$('#bankerScore').show();
+			$('#playerScore').html(data.playerTotal)
+		},200)
+
+	},2000);
 
 
 })
@@ -125,32 +128,34 @@ socket.on('player_card1',function(data){
 socket.on('banker_card1',function(data){
 
 	$('#b1').attr('src','../assets/images/cards/'+data.BankerRes1+'.png');
-
-	$('#_b1').addClass('showCard');
-	$('#_b1').css({
-		'opacity' : '0',
-		'transition' : 'all 0.7s',
-	});
-
-	$('#b1').addClass('showCard');
-
-
 	setTimeout(function(){
-		$('#_b1').removeClass('showCard');
-		$('#_b1').addClass('hideCard');
 
-		$('#b1').removeClass('showCard');
-		$('#b1').addClass('hideCard');
-
-		$('#b1').css({
-			'opacity' : '1',
+		$('#_b1').addClass('showCard');
+		$('#_b1').css({
+			'opacity' : '0',
 			'transition' : 'all 0.7s',
-		})
+		});
 
-		$('#bankerScore').html(data.bankerTotal)
+		$('#b1').addClass('showCard');
 
-	},200)
 
+		setTimeout(function(){
+			$('#_b1').removeClass('showCard');
+			$('#_b1').addClass('hideCard');
+
+			$('#b1').removeClass('showCard');
+			$('#b1').addClass('hideCard');
+
+			$('#b1').css({
+				'opacity' : '1',
+				'transition' : 'all 0.7s',
+			})
+
+			$('#bankerScore').html(data.bankerTotal)
+
+		},200)
+
+	},2000);
 	// $('#_b1').addClass('unrotate');
 
 });
@@ -168,31 +173,34 @@ socket.on('player_card2',function(data){
 
 	$('#p1').attr('src','../assets/images/cards/'+data.playerRes2+'.png');
 
-	$('#_p1').addClass('showCard');
-	$('#_p1').css({
-		'opacity' : '0',
-		'transition' : 'all 0.7s',
-	});
-
-	$('#p1').addClass('showCard');
-
-
 	setTimeout(function(){
-		$('#_p1').removeClass('showCard');
-		$('#_p1').addClass('hideCard');
-		
-		$('#p1').removeClass('showCard');
-		$('#p1').addClass('hideCard');
 
-		$('#p1').css({
-			'opacity' : '1',
+		$('#_p1').addClass('showCard');
+		$('#_p1').css({
+			'opacity' : '0',
 			'transition' : 'all 0.7s',
-		})
+		});
 
-		$('#playerScore').html(data.playerTotal)
+		$('#p1').addClass('showCard');
 
-	},200);
 
+		setTimeout(function(){
+			$('#_p1').removeClass('showCard');
+			$('#_p1').addClass('hideCard');
+			
+			$('#p1').removeClass('showCard');
+			$('#p1').addClass('hideCard');
+
+			$('#p1').css({
+				'opacity' : '1',
+				'transition' : 'all 0.7s',
+			})
+
+			$('#playerScore').html(data.playerTotal)
+
+		},200);
+
+	},2000)
 
 
 })
@@ -205,31 +213,33 @@ socket.on('banker_card2',function(data){
 
 
 	$('#b2').attr('src','../assets/images/cards/'+data.BankerRes2+'.png');
-
-	$('#_b2').addClass('showCard');
-	$('#_b2').css({
-		'opacity' : '0',
-		'transition' : 'all 0.7s',
-	});
-
-	$('#b2').addClass('showCard');
-
-
 	setTimeout(function(){
-		$('#_b2').removeClass('showCard');
-		$('#_b2').addClass('hideCard');
-		
-		$('#b2').removeClass('showCard');
-		$('#b2').addClass('hideCard');
 
-		$('#b2').css({
-			'opacity' : '1',
+		$('#_b2').addClass('showCard');
+		$('#_b2').css({
+			'opacity' : '0',
 			'transition' : 'all 0.7s',
-		})
+		});
 
-		$('#bankerScore').html(data.bankerTotal)
+		$('#b2').addClass('showCard');
 
-	},200)
+
+		setTimeout(function(){
+			$('#_b2').removeClass('showCard');
+			$('#_b2').addClass('hideCard');
+			
+			$('#b2').removeClass('showCard');
+			$('#b2').addClass('hideCard');
+
+			$('#b2').css({
+				'opacity' : '1',
+				'transition' : 'all 0.7s',
+			})
+
+			$('#bankerScore').html(data.bankerTotal)
+
+		},200)
+	},2000);
 });
 
 
@@ -238,41 +248,44 @@ socket.on('dataTotalPlayer',function(data){
 
 
 		$('#p3').attr('src','../assets/images/cards/'+data.playerRes3+'.png');
- 
-		$('#_p3').show();
-		$('#_p3').animate({
-			'left' : '-499px',
-			'top' : '0',
-			'transform' : 'rotate(0deg)',
-		},500);
+ 		
+ 		setTimeout(function(){
 
-		setTimeout(function(){
-
-			$('#_p3').addClass('showCard');
-			$('#_p3').css({
-				'opacity' : '0',
-				'transition' : 'all 0.7s',
-			});
-
-			$('#p3').addClass('showCard');
-
+			$('#_p3').show();
+			$('#_p3').animate({
+				'left' : '-499px',
+				'top' : '0',
+				'transform' : 'rotate(0deg)',
+			},500);
 
 			setTimeout(function(){
-				$('#_p3').removeClass('showCard');
-				$('#_p3').addClass('hideCard');
-				
-				$('#p3').removeClass('showCard');
-				$('#p3').addClass('hideCard');
 
-				$('#p3').css({
-					'opacity' : '1',
+				$('#_p3').addClass('showCard');
+				$('#_p3').css({
+					'opacity' : '0',
 					'transition' : 'all 0.7s',
-				})
-				$('#playerScore').html(data.playerTotal)
+				});
+
+				$('#p3').addClass('showCard');
 
 
-			},200)
-		},1000)
+				setTimeout(function(){
+					$('#_p3').removeClass('showCard');
+					$('#_p3').addClass('hideCard');
+					
+					$('#p3').removeClass('showCard');
+					$('#p3').addClass('hideCard');
+
+					$('#p3').css({
+						'opacity' : '1',
+						'transition' : 'all 0.7s',
+					})
+					$('#playerScore').html(data.playerTotal)
+
+
+				},200)
+			},1000)
+ 		},2000)
 
 	}
 
@@ -286,41 +299,44 @@ socket.on('dataTotalBanker',function(data){
 		$('#b3').attr('src','../assets/images/cards/'+data.BankerRes3+'.png');
 
 
-
-		$('#_b3').show();
-		$('#_b3').animate({
-			'left' : '-133px',
-			'top' : '0',
-			'transform' : 'rotate(0deg)',
-		},500);
-
-
 		setTimeout(function(){
 
-			$('#_b3').addClass('showCard');
-			$('#_b3').css({
-				'opacity' : '0',
-				'transition' : 'all 0.7s',
-			});
 
-			$('#b3').addClass('showCard');
+			$('#_b3').show();
+			$('#_b3').animate({
+				'left' : '-133px',
+				'top' : '0',
+				'transform' : 'rotate(0deg)',
+			},500);
 
 
 			setTimeout(function(){
-				$('#_b3').removeClass('showCard');
-				$('#_b3').addClass('hideCard');
-				
-				$('#b3').removeClass('showCard');
-				$('#b3').addClass('hideCard');
 
-				$('#b3').css({
-					'opacity' : '1',
+				$('#_b3').addClass('showCard');
+				$('#_b3').css({
+					'opacity' : '0',
 					'transition' : 'all 0.7s',
-				})
+				});
 
-				$('#bankerScore').html(data.bankerTotal)
-			},200)
-		},1000)
+				$('#b3').addClass('showCard');
+
+
+				setTimeout(function(){
+					$('#_b3').removeClass('showCard');
+					$('#_b3').addClass('hideCard');
+					
+					$('#b3').removeClass('showCard');
+					$('#b3').addClass('hideCard');
+
+					$('#b3').css({
+						'opacity' : '1',
+						'transition' : 'all 0.7s',
+					})
+
+					$('#bankerScore').html(data.bankerTotal)
+				},200)
+			},1000)
+		},2000)
 
 	}
 

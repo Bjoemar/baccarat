@@ -861,24 +861,23 @@ setInterval(function(){
 			// First Card of the player
 			
 			io.sockets.emit("player_card1",{"playerRes1" : gameResult.playerRes1, "playerTotal" : gameResult.firstLefttVal});
-		},3000);
+		},1000);
 
 		setTimeout(function(){
 			// First Card of the banker
 			io.sockets.emit("banker_card1",{"BankerRes1" : gameResult.BankerRes1, "bankerTotal" : gameResult.firstRightVal});
-		},4000);
+		},2000);
 
 		setTimeout(function(){
 			// First Card of the player
 
 			io.sockets.emit("player_card2",{"playerRes2" : gameResult.playerRes2, "playerTotal" : gameResult.leftVal});
-		},5000);
+		},3000);
 
 		setTimeout(function(){
 			// First Card of the banker
 			io.sockets.emit("banker_card2",{"BankerRes2" : gameResult.BankerRes2, "bankerTotal" : gameResult.rightVal});
-		},7000);
-
+		},5000);
 
 
 
@@ -888,7 +887,7 @@ setInterval(function(){
 				if (gameResult.secondLeftVal != null) {
 					io.sockets.emit("dataTotalPlayer" , {"playerRes3" :gameResult.ep2card,"playerTotal" : gameResult.secondLeftVal});
 				} 
-			},8000);
+			},6000);
 
 
 			setTimeout(function(){
@@ -896,7 +895,7 @@ setInterval(function(){
 					io.sockets.emit("dataTotalBanker" , {"BankerRes3" : gameResult.eb2card , "bankerTotal" : gameResult.secondRightVal});
 				}
 
-			},11000);
+			},9000);
 
 		// io.sockets.emit("datavalue", {"playerRes1" : gameResult.playerRes1, "playerRes2" : gameResult.playerRes2 , "BankerRes1" : gameResult.BankerRes1 , "BankerRes2" : gameResult.BankerRes2 , "ep2card" : gameResult.ep2card, "eb2card" : gameResult.eb2card});
 
