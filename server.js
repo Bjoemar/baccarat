@@ -31,9 +31,7 @@ var url = "mongodb+srv://joemar12:joemar12@baccarat-oh6ud.mongodb.net/test?retry
 
 
 
-
-
-
+var gameRound = 0;
 var table_count = 0;
 var lastWinner = null;
 var roundCount = 0;
@@ -47,9 +45,11 @@ MongoClient.connect(url, function(err , db){
 			roundCount = result[0]['roundCount'];
 			table_count =  result[0]['table_count'];
 			lastWinner = result[0]['winner'];
+			gameRound = result[0]['round'];
 			console.log(roundCount);
 			console.log(table_count);
 			console.log(lastWinner);
+			console.log(gameRound)
 		}
 	})
 });
@@ -740,10 +740,12 @@ setInterval(function(){
 	var rounds = (parseInt(roundy) + parseInt(roundx)) + 1;
 
 
+
 	io.sockets.emit('seconds', {seconds});
 
 	if (seconds == 58) {
 
+		
 		var secret_code = rounds+'baccarat'+moment().format('DD-MM-YYYY');
 		var hash = crypto.createHmac('sha256',secret_code).digest('hex'); // Hash of the game
 		var nowdate = moment().format('YYYY-MM-DD');
@@ -848,6 +850,8 @@ setInterval(function(){
 
 			  	},10000)
 
+
+
 			}) //end MongoClient
 
 
@@ -916,7 +920,8 @@ setInterval(function(){
 			}
 
 			setTimeout(function(){
-				io.sockets.emit('gameRounds',{'game_round' : rounds + 1});
+				gameRound = rounds;
+				io.sockets.emit('gameRounds',{'game_round' : gameRound + 1});
 			},45000)
 
 			setTimeout(function(){
@@ -974,6 +979,10 @@ io.on('connection',function(socket){
 		gameResult = [];
 		getResult(gameResult);
 	})
+
+	socket.on('getRounds',function(){
+		socket.emit('rounds' , {'round' : gameRound});
+	});
 
 
 

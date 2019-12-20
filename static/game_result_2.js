@@ -50,7 +50,6 @@ socket.on("bankerWin",function(data){
 		natural_score = 0;
 	}
 
-	console.log(data)
 	var winner = data.winner;
 	if (winner == 'tie') 
 	{
@@ -364,7 +363,7 @@ function runToptables(data) {
 			tie_score = 0;
 			natural_score = 0;
 		}
-		
+
 
 		if (winner == 'tie') 
 		{

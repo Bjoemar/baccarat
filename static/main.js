@@ -1,7 +1,7 @@
 var socket = io();
 socket.emit("newVisitor");
 
-
+socket.emit('getRounds');
 var getPast = true;
 
 $('.gamebody').animate({
@@ -82,10 +82,14 @@ socket.on('loadDataGame',function(data){
 
 
 
-	if ((data[0].round + 1) < 10) {
-		$('#round_text').html("ROUND 0"+(data[0].round + 1));
+})
+
+socket.on('getRounds',function(data){
+
+	if ((data.round + 1) < 10) {
+		$('#round_text').html("ROUND 0"+(data.round + 1));
 	} else {
-		$('#round_text').html("ROUND "+(data[0].round + 1));
+		$('#round_text').html("ROUND "+(data.round + 1));
 	}
 })
 
