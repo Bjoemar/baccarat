@@ -742,6 +742,7 @@ setInterval(function(){
 
 
 	io.sockets.emit('seconds', {seconds});
+	io.sockets.emit('rounds' , {'round' : gameRound});
 
 	if (seconds == 58) {
 
@@ -998,7 +999,7 @@ io.on('connection',function(socket){
 
 			dbo.collection('game').find().limit(1).sort(mysort).toArray(function(err , result){
 				if (err) throw err;
-				socket.emit('rounds' , {'round' : gameRound});
+
 				socket.emit('loadDataGame' , result);
 				db.close();
 			})
