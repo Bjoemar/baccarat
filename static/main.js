@@ -1,6 +1,7 @@
 var socket = io();
 socket.emit("newVisitor");
 
+
 var getPast = true;
 
 $('.gamebody').animate({

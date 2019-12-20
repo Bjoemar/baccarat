@@ -21,6 +21,8 @@ var bottom_empty = true;
 
 var loadprev = false;
 
+
+
 socket.on('seconds',function(data){
 	if (data.seconds > 10 || data.seconds < 40) {
 		loadprev = true;
@@ -35,10 +37,6 @@ socket.on('loadData',function(data){
 	}
 
 });
-
-setInterval(function(){
-	console.log(rl)
-},1000)
 socket.on("bankerWin",function(data){
 	console.log(data)
 	var winner = data.winner;
@@ -123,7 +121,7 @@ socket.on("bankerWin",function(data){
 
 	}
 
-	if (rl == 38) {
+	if (rl >= 38) {
 		$('.chips_top').html('');
 		$('.chips_bottom').html('');
 		banker_score = 0;
@@ -220,9 +218,10 @@ socket.on("tieGame",function(data){
 
 	}
 
-	if (rl == 38) {
+	if (rl >= 38) {
 		$('.chips_top').html('');
 		$('.chips_bottom').html('');
+
 		banker_score = 0;
 		banker_pair = 0;
 		player_score = 0;
@@ -318,7 +317,7 @@ socket.on("playerWin",function(data){
 
 	}
 
-	if (rl == 38) {
+	if (rl >= 38) {
 		$('.chips_top').html('');
 		$('.chips_bottom').html('');
 		banker_score = 0;
@@ -428,7 +427,7 @@ function runToptables(data) {
 
 		}
 
-		if (rl == 38) {
+		if (rl >= 38) {
 			$('.chips_top').html('');
 			$('.chips_bottom').html('');
 			banker_score = 0;

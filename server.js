@@ -39,17 +39,17 @@ var lastWinner = null;
 var roundCount = 0;
 
 
-	MongoClient.connect(url, function(err , db){
-		var dbo = db.db("baccarat");
-		dbo.collection('game').find().sort({id : -1}).limit(1).toArray(function(err , result){
-			if (result.length > 0) {	
-				roundCount = result[0]['roundCount'];
-				table_count =  result[0]['table_count'];
-				lastWinner = result[0]['winner'];
-			}
+MongoClient.connect(url, function(err , db){
+	var dbo = db.db("baccarat");
+	dbo.collection('game').find().sort({id : -1}).limit(1).toArray(function(err , result){
+		if (result.length > 0) {	
+			roundCount = result[0]['roundCount'];
+			table_count =  result[0]['table_count'];
+			lastWinner = result[0]['winner'];
+		}
 
-		})
-	});
+	})
+});
 
 app.set('port',5000);
 
@@ -560,7 +560,7 @@ function getResult(gameResult){
 	} else if (rightVal == 5) {
 
 
-		if ((epcard == 6 || epcard == 7) || (secondLeftVal == 6 || secondLeftVal == 7 secondLeftVal == 5)) {
+		if ((epcard == 6 || epcard == 7) || (secondLeftVal == 6 || secondLeftVal == 7 || secondLeftVal == 5)) {
 			
 			var banker_Extra_card = processCard();
 
@@ -1014,7 +1014,7 @@ io.on('connection',function(socket){
 				if (result.length > 0) {
 					if (err) throw err;
 						socket.emit('loadData' , result);
-						// console.log(result)
+
 					}
 				db.close();
 
