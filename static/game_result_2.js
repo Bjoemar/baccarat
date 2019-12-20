@@ -36,6 +36,9 @@ socket.on('loadData',function(data){
 
 });
 
+setInterval(function(){
+	console.log(rl)
+},1000)
 socket.on("bankerWin",function(data){
 	console.log(data)
 	var winner = data.winner;
@@ -467,7 +470,7 @@ function b_banker() {
 	{
 		$('.chips_bottom .cb_holder').last().append('<div class="chipsB">'+
 				'<img src="assets/images/Components/B2.png">'+
-				'<img class="hidden" src="assets/images/Components/Bs2.png">'+
+				'<img class="hidden" src="assets/images/Components/bs2.png">'+
 				'<img class="hidden" src="assets/images/Components/ps2.png">'+
 			'</div>');
 		cb_content++;

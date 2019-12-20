@@ -38,7 +38,6 @@ var table_count = 0;
 var lastWinner = null;
 var roundCount = 0;
 
-setInterval(function(){
 
 	MongoClient.connect(url, function(err , db){
 		var dbo = db.db("baccarat");
@@ -51,7 +50,6 @@ setInterval(function(){
 
 		})
 	});
-},1000)
 
 app.set('port',5000);
 
@@ -772,6 +770,7 @@ setInterval(function(){
 					 			table_count += 1;
 					 			roundCount = 0;
 					 		}
+
 					 		lastWinner = winner;
 					 	}
 				 	} else {
@@ -840,10 +839,10 @@ setInterval(function(){
 			  	setTimeout(function(){
 
 			  	
-			  		dbo.collection("game").insertOne(myobj, function(err, res){
-					    console.log("ROUND "+rounds+" RECORDER");
-					    db.close();
-					}); //End of insertOne
+			  // 		dbo.collection("game").insertOne(myobj, function(err, res){
+					//     console.log("ROUND "+rounds+" RECORDER");
+					//     db.close();
+					// }); //End of insertOne
 
 			  	},10000)
 
@@ -1010,13 +1009,14 @@ io.on('connection',function(socket){
 			// console.log(roundCount);
 			var query = {'table_count' : table_count};
 
+
 			dbo.collection('game').find(query).toArray(function(err , result){
 
 					// console.log(result)
 				if (result.length > 0) {
 					if (err) throw err;
 						socket.emit('loadData' , result);
-						console.log(result)
+						// console.log(result)
 					}
 				db.close();
 
