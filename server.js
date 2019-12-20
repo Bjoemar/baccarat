@@ -563,7 +563,7 @@ function getResult(gameResult){
 	} else if (rightVal == 5) {
 
 
-		if ((epcard == 6 || epcard == 7) || (secondLeftVal == 6 || secondLeftVal == 7 || secondLeftVal == 5)) {
+		if ((epcard == 6 || epcard == 7) || (secondLeftVal >= 5 )) {
 			
 			var banker_Extra_card = processCard();
 
