@@ -38,6 +38,18 @@ socket.on('loadData',function(data){
 
 });
 socket.on("bankerWin",function(data){
+
+	if (rl >= 38) {
+		$('.chips_top').html('');
+		$('.chips_bottom').html('');
+		banker_score = 0;
+		banker_pair = 0;
+		player_score = 0;
+		player_pair = 0;
+		tie_score = 0;
+		natural_score = 0;
+	}
+
 	console.log(data)
 	var winner = data.winner;
 	if (winner == 'tie') 
@@ -121,9 +133,15 @@ socket.on("bankerWin",function(data){
 
 	}
 
+
+})
+
+socket.on("tieGame",function(data){
+
 	if (rl >= 38) {
 		$('.chips_top').html('');
 		$('.chips_bottom').html('');
+
 		banker_score = 0;
 		banker_pair = 0;
 		player_score = 0;
@@ -132,9 +150,6 @@ socket.on("bankerWin",function(data){
 		natural_score = 0;
 	}
 
-})
-
-socket.on("tieGame",function(data){
 	var winner = data.winner;
 	var winner = data.winner;
 	if (winner == 'tie') 
@@ -218,17 +233,6 @@ socket.on("tieGame",function(data){
 
 	}
 
-	if (rl >= 38) {
-		$('.chips_top').html('');
-		$('.chips_bottom').html('');
-
-		banker_score = 0;
-		banker_pair = 0;
-		player_score = 0;
-		player_pair = 0;
-		tie_score = 0;
-		natural_score = 0;
-	}
 
 })
 
@@ -236,6 +240,18 @@ socket.on("tieGame",function(data){
 
 socket.on("playerWin",function(data){
 	var winner = data.winner;
+
+	if (rl >= 38) {
+		$('.chips_top').html('');
+		$('.chips_bottom').html('');
+		banker_score = 0;
+		banker_pair = 0;
+		player_score = 0;
+		player_pair = 0;
+		tie_score = 0;
+		natural_score = 0;
+	}
+
 	if (winner == 'tie') 
 	{
 		tieChips(prev_Win);
@@ -317,16 +333,6 @@ socket.on("playerWin",function(data){
 
 	}
 
-	if (rl >= 38) {
-		$('.chips_top').html('');
-		$('.chips_bottom').html('');
-		banker_score = 0;
-		banker_pair = 0;
-		player_score = 0;
-		player_pair = 0;
-		tie_score = 0;
-		natural_score = 0;
-	}
 
 })
 
@@ -341,10 +347,24 @@ $('#hashbtn').click(function(){
 
 
 function runToptables(data) {
+
 	for(i = 0; i < data.length; i++)
 	{	
 		var winner = data[i]['winner'];
 		var obj = data[i];
+
+
+		if (rl >= 38) {
+			$('.chips_top').html('');
+			$('.chips_bottom').html('');
+			banker_score = 0;
+			banker_pair = 0;
+			player_score = 0;
+			player_pair = 0;
+			tie_score = 0;
+			natural_score = 0;
+		}
+		
 
 		if (winner == 'tie') 
 		{
@@ -427,16 +447,6 @@ function runToptables(data) {
 
 		}
 
-		if (rl >= 38) {
-			$('.chips_top').html('');
-			$('.chips_bottom').html('');
-			banker_score = 0;
-			banker_pair = 0;
-			player_score = 0;
-			player_pair = 0;
-			tie_score = 0;
-			natural_score = 0;
-		}
 	}
 }
 

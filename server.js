@@ -41,8 +41,9 @@ var roundCount = 0;
 
 MongoClient.connect(url, function(err , db){
 	var dbo = db.db("baccarat");
-	dbo.collection('game').find().sort({id : -1}).limit(1).toArray(function(err , result) {
+	dbo.collection('game').find().sort({_id : -1}).limit(10).toArray(function(err , result) {
 		if (result.length > 0) {	
+			console.log(result)
 			roundCount = result[0]['roundCount'];
 			table_count =  result[0]['table_count'];
 			lastWinner = result[0]['winner'];
