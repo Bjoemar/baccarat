@@ -238,7 +238,7 @@ socket.on('dataTotalPlayer',function(data){
 
 
 		$('#p3').attr('src','../assets/images/cards/'+data.playerRes3+'.png');
-
+ 
 		$('#_p3').show();
 		$('#_p3').animate({
 			'left' : '-499px',
@@ -398,6 +398,7 @@ function cleanCard(){
 				$('#_p1').css('left' , '0');
 				$('#p1').removeClass('hideCard');
 				$('#_p1').removeClass('hideCard');
+				$('#p1').attr('src','assets/images/closeCard.png');
 			},500)		
 		},500)	
 
@@ -443,6 +444,7 @@ function cleanCard(){
 				$('#_p2').css('left' , '0');
 				$('#p2').removeClass('hideCard');
 				$('#_p2').removeClass('hideCard');
+				$('#p2').attr('src','assets/images/closeCard.png');
 			},500)		
 		},500)	
 
@@ -489,6 +491,7 @@ function cleanCard(){
 				$('#_p3').css('left' , '0');
 				$('#p3').removeClass('hideCard');
 				$('#_p3').removeClass('hideCard');
+				$('#p3').attr('src','assets/images/closeCard.png');
 			},500)		
 		},500)	
 
@@ -534,6 +537,7 @@ function cleanCard(){
 				$('#_b1').css('left' , '0');
 				$('#b1').removeClass('hideCard');
 				$('#_b1').removeClass('hideCard');
+				$('#b1').attr('src','assets/images/closeCard.png');
 			},500)		
 		},500)	
 
@@ -581,6 +585,7 @@ function cleanCard(){
 				$('#_b2').css('left' , '0');
 				$('#b2').removeClass('hideCard');
 				$('#_b2').removeClass('hideCard');
+				$('#b2').attr('src','assets/images/closeCard.png');
 			},500)		
 		},500)	
 
@@ -623,6 +628,7 @@ function cleanCard(){
 				$('#_b3').css('left' , '0');
 				$('#b3').removeClass('hideCard');
 				$('#_b3').removeClass('hideCard');
+				$('#b3').attr('src','assets/images/closeCard.png');
 			},500)		
 		},500)	
 
