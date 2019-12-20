@@ -85,7 +85,7 @@ socket.on('loadDataGame',function(data){
 
 })
 
-socket.on('getRounds',function(data){
+socket.on('rounds',function(data){
 
 	if ((data.round + 1) < 10) {
 		$('#round_text').html("ROUND 0"+(data.round + 1));
