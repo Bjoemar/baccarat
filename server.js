@@ -493,7 +493,7 @@ function getResult(gameResult){
 		// Stands
 	} else if (rightVal == 3) {
 
-		if ((epcard == 3 || epcard == 4 || epcard == 5 || epcard == 6 || epcard == 7 || epcard == 9 || epcard == 10) || (secondLeftVal == 3 || secondLeftVal == 4 || secondLeftVal == 5 || secondLeftVal == 6 || secondLeftVal == 7 || secondLeftVal == 9 || secondLeftVal == 10)) {
+		if ((epcard == 3 || epcard == 4 || epcard == 5 || epcard == 6 || epcard == 7 || epcard == 9 || epcard == 10) || (secondLeftVal == 3 || secondLeftVal == 4 || secondLeftVal == 5 || secondLeftVal == 6 || secondLeftVal == 7 || secondLeftVal == 9)) {
 
 			var banker_Extra_card = processCard();
 
@@ -527,7 +527,7 @@ function getResult(gameResult){
 
 	} else if (rightVal == 4) {
 
-		if ((epcard == 4 || epcard == 5 || epcard == 6 || epcard == 7) || (secondLeftVal == 4 || secondLeftVal == 5 || secondLeftVal == 6 || secondLeftVal == 7)) {
+		if ((epcard == 4 || epcard == 5 || epcard == 6 || epcard == 7) || (secondLeftVal >= 4)) {
 			
 			var banker_Extra_card = processCard();
 
@@ -604,40 +604,38 @@ function getResult(gameResult){
 	} else if (rightVal == 6) {
 
 
-
-
-		if (epcard == 7) {
+		// if (epcard == 7) {
 				
-				var banker_Extra_card = processCard();
+		// 		var banker_Extra_card = processCard();
 
-				ebcard = banker_Extra_card['card'];;
-				ebcardShape =  banker_Extra_card['card_shape'];
+		// 		ebcard = banker_Extra_card['card'];;
+		// 		ebcardShape =  banker_Extra_card['card_shape'];
 
-				eb2card = ebcardShape +'_'+ ebcard;
+		// 		eb2card = ebcardShape +'_'+ ebcard;
 
-				if (ebcard == 10 || ebcard == 11 || ebcard == 12 || ebcard == 13) {
-					ebcard = 0;
-				}
+		// 		if (ebcard == 10 || ebcard == 11 || ebcard == 12 || ebcard == 13) {
+		// 			ebcard = 0;
+		// 		}
 
-				secondRightVal = rightVal + ebcard;
-				// secondRightVal = secondRightVal % 10;
+		// 		secondRightVal = rightVal + ebcard;
+		// 		// secondRightVal = secondRightVal % 10;
 				
-			}else if(rightVal < leftVal){
+		// 	} else if(rightVal < leftVal){
 			
-			var banker_Extra_card = processCard();
+		// 	var banker_Extra_card = processCard();
 
-			ebcard = banker_Extra_card['card'];;
-			ebcardShape =  banker_Extra_card['card_shape'];
+		// 	ebcard = banker_Extra_card['card'];;
+		// 	ebcardShape =  banker_Extra_card['card_shape'];
 
-			eb2card = ebcardShape +'_'+ ebcard;
+		// 	eb2card = ebcardShape +'_'+ ebcard;
 
-			if (ebcard == 10 || ebcard == 11 || ebcard == 12 || ebcard == 13) {
-				ebcard = 0;
-			}
+		// 	if (ebcard == 10 || ebcard == 11 || ebcard == 12 || ebcard == 13) {
+		// 		ebcard = 0;
+		// 	}
 
-			secondRightVal = rightVal + ebcard;
-			// secondRightVal = secondRightVal % 10;
-		}
+		// 	secondRightVal = rightVal + ebcard;
+		// 	// secondRightVal = secondRightVal % 10;
+		// }
 
 
 	} else if (rightVal == 7) {
