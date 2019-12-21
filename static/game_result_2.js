@@ -437,12 +437,13 @@ function runToptables(data) {
 			playerPair(obj['playerPair']);
 			bankerPair(obj['bankerPair']);
 
+
 			if (obj['playerNatural']) {
 				natural(true);
 			} else if (obj['BankerNatural']) {
 				natural(true);
-			}
-			
+			}	
+		
 
 		}
 

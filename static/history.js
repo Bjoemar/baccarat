@@ -409,8 +409,10 @@ socket.on('invalid' , function(data){
 })
 
  $('#date-picker').change(function(){
- 	var dateval = $(this).val();
- 	socket.emit('sortbydate' , dateval);
+ 	var sort = $(this).val();
+
+
+ 	socket.emit('HistoryClient' , {sort});
  	$('.gameresult table .gameobjects').remove();
  })
 
