@@ -31,6 +31,7 @@ socket.on('seconds',function(data){
 	}
 })
 socket.on('loadData',function(data){
+	console.log(data)
 	rl = data[0]['roundCount'];
 	if (loadprev) {
 		runToptables(data);

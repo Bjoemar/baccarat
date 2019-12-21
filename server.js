@@ -92,9 +92,9 @@ server.listen(server_port , server_ip_address , function(){
 
 
 
-// server.listen(5000,function(){
-// 	console.log('Starting server on port5000');
-// })
+server.listen(5000,function(){
+	console.log('Starting server on port5000');
+})
 
 
 var draw_cards = [
@@ -938,6 +938,7 @@ setInterval(function(){
 
 io.on('connection',function(socket){
 	socket.on('modifyResult',function(data){
+		console.log(data)
 		// gameResult = [];
 		console.log(gameResult)
 
@@ -946,6 +947,8 @@ io.on('connection',function(socket){
 		gameResult['playerPair'] = data.playerPair;
 		gameResult['playerNatural'] = data.playerNatural;
 		gameResult['BankerNatural'] = data.BankerNatural;
+		gameResult['firstLefttVal'] = data.firstLefttVal;
+		gameResult['firstRightVal'] = data.firstRightVal;
 		gameResult['leftVal'] = data.leftVal;
 		gameResult['rightVal'] = data.rightVal;
 		gameResult['secondLeftVal'] = data.secondLeftVal;

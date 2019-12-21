@@ -63,6 +63,8 @@
 		<button id="banker_pair" style="display: none;">Banker Pair</button>
 		<button id="player_natural" style="display: none;">Player NTR</button>
 		<button id="banker_natural" style="display: none;">Banker NTR</button>
+		<button id="player_normal" style="display: none;">Player NTR</button>
+		<button id="banker_normal" style="display: none;">Banker NTR</button>
 		<button id="pwin">PLAYER WIN</button>
 		<button id="bwin">BANKER WIN</button>
 		<button id="reset">Reset result</button>
@@ -76,15 +78,19 @@
 
 	var admin_cheat = true;
 
+
+
 	$('#pwin').click(function(){
 		$('button').css('background' , 'transparent')
 		$(this).css('background','green')
-		var decider = Math.floor(Math.random() * 2);
+		var decider = Math.floor(Math.random() * 3);
 
 		if (decider == 0) {
 			$('#player_pair').click();
-		} else {
+		} else if (decider == 1){
 			$('#player_natural').click();
+		} else {
+			$('#player_normal').click();
 		}
 	});
 
@@ -92,12 +98,14 @@
 	$('#bwin').click(function(){
 		$('button').css('background' , 'transparent')
 		$(this).css('background','green')
-		var decider = Math.floor(Math.random() * 2);
+		var decider = Math.floor(Math.random() * 3);
 
 		if (decider == 0) {
 			$('#banker_pair').click();
-		} else {
+		} else if (decider == 1){
 			$('#banker_natural').click();
+		} else {
+			$('#banker_normal').click();
 		}
 	});
 
@@ -106,11 +114,13 @@
 			"c1" : 2,
 			"c2" : 2,
 			"c3" : 5,
+			"firstLefttVal" : 2,
 			"leftVal"  : 4,
 			"secondLeftVal" : 9,
 			"c14" : 3,
 			"c15" : 4,
 			"c16" : "",
+			"firstRightVal" : 3,
 			"rightVal" : 7,
 			"secondRightVal" : 7,
 
@@ -119,11 +129,13 @@
 			"c1" : 4,
 			"c2" : 4,
 			"c3" : "",
+			"firstLefttVal" : 4,
 			"leftVal"  : 8,
 			"secondLeftVal" : 8,
 			"c14" : 1,
 			"c15" : 2,
 			"c16" : "",
+			"firstRightVal" : 1,
 			"rightVal" : 3,
 			"secondRightVal" : 3,
 		},
@@ -132,11 +144,13 @@
 			"c1" : 4,
 			"c2" : 4,
 			"c3" : "",
+			"firstLefttVal" : 4,
 			"leftVal"  : 8,
 			"secondLeftVal" : 8,
 			"c14" : 5,
 			"c15" : 1,
 			"c16" : "",
+			"firstRightVal" : 5,
 			"rightVal" : 6,
 			"secondRightVal" : 6,
 
@@ -146,11 +160,13 @@
 			"c1" : 1,
 			"c2" : 1,
 			"c3" : 6,
+			"firstLefttVal" : 1,
 			"leftVal"  : 2,
 			"secondLeftVal" : 8,
 			"c14" : 3,
 			"c15" : 10,
 			"c16" : 9,
+			"firstRightVal" : 3,
 			"rightVal" : 3,
 			"secondRightVal" : 2,
 
@@ -160,14 +176,130 @@
 			"c1" : 3,
 			"c2" : 3,
 			"c3" : "",
+			"firstLefttVal" : 3,
 			"leftVal"  : 6,
 			"secondLeftVal" : 6,
 			"c14" : 1,
 			"c15" : 2,
 			"c16" : 9,
+			"firstRightVal" : 1,
 			"rightVal" : 3,
 			"secondRightVal" : 2,
 		},
+
+
+		{
+			"c1" : 2,
+			"c2" : 2,
+			"c3" : 7,
+			"firstLefttVal" : 2,
+			"leftVal"  : 4,
+			"secondLeftVal" : 9,
+			"c14" : 1,
+			"c15" : 1,
+			"c16" : 9,
+			"firstRightVal" : 1,
+			"rightVal" : 2,
+			"secondRightVal" : 1,
+		},
+
+	];
+
+
+	var normalCombination = [
+		{
+			"c1" : 5,
+			"c2" : 2,
+			"c3" : "",
+			"firstLefttVal" : 5,
+			"leftVal"  : 7,
+			"secondLeftVal" : 7,
+			"c14" : 6,
+			"c15" : 5,
+			"c16" : 12,
+			"firstRightVal" : 6,
+			"rightVal" : 1,
+			"secondRightVal" : 1,
+
+		},
+		{
+			"c1" : 7,
+			"c2" : 13,
+			"c3" : "",
+			"firstLefttVal" : 7,
+			"leftVal"  : 7,
+			"secondLeftVal" : 7,
+			"c14" : 3,
+			"c15" : 10,
+			"c16" : 2,
+			"firstRightVal" : 3,
+			"rightVal" : 3,
+			"secondRightVal" : 5,
+		},
+
+		{
+			"c1" : 1,
+			"c2" : 12,
+			"c3" : 3,
+			"firstLefttVal" : 1,
+			"leftVal"  : 1,
+			"secondLeftVal" : 4,
+			"c14" : 12,
+			"c15" : 5,
+			"c16" : "",
+			"firstRightVal" : 0,
+			"rightVal" : 5,
+			"secondRightVal" : 5,
+
+		},
+
+		{
+			"c1" : 7,
+			"c2" : 11,
+			"c3" : "",
+			"firstLefttVal" : 7,
+			"leftVal"  : 7,
+			"secondLeftVal" : 7,
+			"c14" : 11,
+			"c15" : 13,
+			"c16" : 3,
+			"firstRightVal" : 0,
+			"rightVal" : 0,
+			"secondRightVal" : 3,
+
+		},
+
+		{
+			"c1" : 6,
+			"c2" : 9,
+			"c3" : 3,
+			"firstLefttVal" : 6,
+			"leftVal"  : 5,
+			"secondLeftVal" : 8,
+			"c14" : 6,
+			"c15" : 6,
+			"c16" : 2,
+			"firstRightVal" : 6,
+			"rightVal" : 2,
+			"secondRightVal" : 4,
+		},
+
+
+		{
+			"c1" : 1,
+			"c2" : 1,
+			"c3" : 7,
+			"firstLefttVal" : 1,
+			"leftVal"  : 2,
+			"secondLeftVal" : 9,
+			"c14" : 3,
+			"c15" : 3,
+			"c16" : "",
+			"firstRightVal" : 3,
+			"rightVal" : 6,
+			"secondRightVal" : 6,
+		},
+
 
 	];
 
@@ -178,8 +310,10 @@
 			"c2" : 4,
 			"c13" : 1,
 			"c14" : 5,
+			"firstLefttVal" : 5,
 			"leftVal"  : 9,
 			"secondLeftVal" : 9,
+			"firstRightVal" : 1,
 			"rightVal" : 6,
 			"secondRightVal" : 6,
 		},
@@ -188,8 +322,10 @@
 			"c2" : 2,
 			"c13" : 3,
 			"c14" : 2,
+			"firstLefttVal" : 6,
 			"leftVal"  : 8,
 			"secondLeftVal" : 8,
+			"firstRightVal" : 3,
 			"rightVal" : 5,
 			"secondRightVal" : 5,
 		},
@@ -198,8 +334,10 @@
 			"c2" : 3,
 			"c13" : 4,
 			"c14" : 1,
+			"firstLefttVal" : 6,
 			"leftVal"  : 9,
 			"secondLeftVal" : 9,
+			"firstRightVal" : 4,
 			"rightVal" : 5,
 			"secondRightVal" : 5,
 		},
@@ -208,8 +346,10 @@
 			"c2" : 2,
 			"c13" : 1,
 			"c14" : 3,
+			"firstLefttVal" : 7,
 			"leftVal"  : 9,
 			"secondLeftVal" : 9,
+			"firstRightVal" : 1,
 			"rightVal" : 4,
 			"secondRightVal" : 4,
 		},
@@ -218,8 +358,10 @@
 			"c2" : 1,
 			"c13" : 10,
 			"c14" : 1,
+			"firstLefttVal" : 8,
 			"leftVal"  : 9,
 			"secondLeftVal" : 9,
+			"firstRightVal" : 0,
 			"rightVal" : 1,
 			"secondRightVal" : 1,
 		},
@@ -228,8 +370,10 @@
 			"c2" : 10,
 			"c13" : 6,
 			"c14" : 10,
+			"firstLefttVal" : 9,
 			"leftVal"  : 9,
 			"secondLeftVal" : 9,
+			"firstRightVal" : 6,
 			"rightVal" : 6,
 			"secondRightVal" : 6,
 		},
@@ -237,13 +381,95 @@
 
 	var second = 0;
 
+	var count = 0;
+
+	var chekerUse = [
+		{
+			'pos1' : false, 
+			'pos2' : false, 
+			'pos3' : false, 
+			'pos4' : false, 
+			'pos5' : false, 
+			'pos6' : false, 
+		},
+		{
+			'pos1' : false, 
+			'pos2' : false, 
+			'pos3' : false, 
+			'pos4' : false, 
+			'pos5' : false, 
+			'pos6' : false, 
+		},
+		{
+			'pos1' : false, 
+			'pos2' : false, 
+			'pos3' : false, 
+			'pos4' : false, 
+			'pos5' : false, 
+			'pos6' : false, 
+		},
+	]
+	
+function randCards(type){
+	var randCard = Math.floor(Math.random() * 6);
+	var name;
+
+	if (randCard == 0) {
+		name = 'pos1';
+	} else if (randCard == 1) {
+		name = 'pos2';
+	} else if (randCard == 2) {
+		name = 'pos3';
+	} else if (randCard == 3) {
+		name = 'pos4';
+	} else if (randCard == 4) {
+		name = 'pos5';
+	} else if (randCard == 5) {
+		name = 'pos6';
+	}
+
+	if (chekerUse[type][name]) {
+		return randCards(type);
+	} else {
+		if (count == 17) {
+			chekerUse[0]['pos1'] = false;
+			chekerUse[0]['pos2'] = false;
+			chekerUse[0]['pos3'] = false;
+			chekerUse[0]['pos4'] = false;
+			chekerUse[0]['pos5'] = false;
+			chekerUse[0]['pos6'] = false;
+			chekerUse[1]['pos1'] = false;
+			chekerUse[1]['pos2'] = false;
+			chekerUse[1]['pos3'] = false;
+			chekerUse[1]['pos4'] = false;
+			chekerUse[1]['pos5'] = false;
+			chekerUse[1]['pos6'] = false;
+			chekerUse[2]['pos1'] = false;
+			chekerUse[2]['pos2'] = false;
+			chekerUse[2]['pos3'] = false;
+			chekerUse[2]['pos4'] = false;
+			chekerUse[2]['pos5'] = false;
+			chekerUse[2]['pos6'] = false;
+			count = 0;
+		}
+
+		count++;
+		chekerUse[type][name] = true;
+		return randCard;
+	}
+}
+
+
 	$('#player_pair').click(function(){
 		if (!admin_cheat) {
 			alert("Can't Modify result right now.")
 		} else {
-			var randCard = Math.floor(Math.random() * 4) + 1;
+			var name = 'pair';
+
+			var randCard = randCards(0)
 			var bankerCard = [pairCombination[randCard]['c14'] ,pairCombination[randCard]['c15'],pairCombination[randCard]['c16']];
 			var playerCard = [pairCombination[randCard]['c1'] ,pairCombination[randCard]['c2'],pairCombination[randCard]['c3']];
+			console.log(randCard)
 			socket.emit('modifyResult', 
 				{
 					"playerRes1" : playerCard[0] ,
@@ -256,6 +482,8 @@
 					"playerPair" : true,
 					"playerNatural" : false,
 					"BankerNatural" : false,
+					"firstLefttVal" : pairCombination[randCard]['firstLefttVal'],
+					"firstRightVal" :pairCombination[randCard]['firstRightVal'],
 					"leftVal" : pairCombination[randCard]['leftVal'],
 					"rightVal" : pairCombination[randCard]['rightVal'],
 					"secondLeftVal" : pairCombination[randCard]['secondLeftVal'],
@@ -264,17 +492,16 @@
 			);
 		}
 
-	})
+	});
 
 
 	$('#banker_pair').click(function(){
 		if (!admin_cheat) {
 			alert("Can't Modify result right now.")
 		} else {
-			var randCard = Math.floor(Math.random() * 4) + 1;
+			var randCard = randCards(0)
 			var playerCard = [pairCombination[randCard]['c14'] ,pairCombination[randCard]['c15'],pairCombination[randCard]['c16']];
 			var bankerCard = [pairCombination[randCard]['c1'] ,pairCombination[randCard]['c2'],pairCombination[randCard]['c3']];
-
 			socket.emit('modifyResult', 
 				{
 					"playerRes1" : playerCard[0] ,
@@ -287,6 +514,8 @@
 					"playerPair" : false,
 					"playerNatural" : false,
 					"BankerNatural" : false,
+					"firstLefttVal" : pairCombination[randCard]['firstRightVal'],
+					"firstRightVal" :pairCombination[randCard]['firstLefttVal'],
 					"leftVal" : pairCombination[randCard]['rightVal'] ,
 					"rightVal" : pairCombination[randCard]['leftVal'],
 					"secondLeftVal" : pairCombination[randCard]['secondRightVal'],
@@ -294,17 +523,16 @@
 				}
 			);
 		}
-	})
+	});
 
 
 	$('#player_natural').click(function(){
 		if (!admin_cheat) {
 			alert("Can't Modify result right now.");
 		} else {
-			var randCard = Math.floor(Math.random() * 4) + 1;
+			var randCard = randCards(1);
 			var bankerCard = [NaturalCombination[randCard]['c13'] ,NaturalCombination[randCard]['c14']];
 			var playerCard = [NaturalCombination[randCard]['c1'] ,NaturalCombination[randCard]['c2']];
-
 			socket.emit('modifyResult', 
 				{
 					"playerRes1" : playerCard[0] ,
@@ -317,6 +545,8 @@
 					"playerPair" : false,
 					"playerNatural" : true,
 					"BankerNatural" : false,
+					"firstLefttVal" : NaturalCombination[randCard]['firstLefttVal'],
+					"firstRightVal" :NaturalCombination[randCard]['firstRightVal'],
 					"leftVal" : NaturalCombination[randCard]['leftVal'],
 					"rightVal" : NaturalCombination[randCard]['rightVal'] ,
 					"secondLeftVal" : NaturalCombination[randCard]['secondLeftVal'],
@@ -331,10 +561,9 @@
 		if (!admin_cheat) {
 			alert("Can't Modify result right now.")
 		} else {
-			var randCard = Math.floor(Math.random() * 4) + 1;
+			var randCard = randCards(1);
 			var playerCard = [NaturalCombination[randCard]['c13'] ,NaturalCombination[randCard]['c14']];
 			var bankerCard = [NaturalCombination[randCard]['c1'] ,NaturalCombination[randCard]['c2']];
-
 
 			socket.emit('modifyResult', 
 				{
@@ -347,7 +576,9 @@
 					"bankerPair" : false,
 					"playerPair" : false,
 					"playerNatural" : false,
-					"BankerNatural" : true,
+					"BankerNatural" : false,
+					"firstLefttVal" : NaturalCombination[randCard]['firstRightVal'],
+					"firstRightVal" :NaturalCombination[randCard]['firstLefttVal'],
 					"leftVal" : NaturalCombination[randCard]['rightVal'] ,
 					"rightVal" : NaturalCombination[randCard]['leftVal'],
 					"secondLeftVal" : NaturalCombination[randCard]['secondRightVal'],
@@ -357,6 +588,75 @@
 
 		}
 	})
+
+
+	$('#player_normal').click(function(){
+		if (!admin_cheat) {
+			alert("Can't Modify result right now.")
+		} else {
+			var randCard = randCards(2);
+			var bankerCard = [normalCombination[randCard]['c14'] ,normalCombination[randCard]['c15'],normalCombination[randCard]['c16']];
+			var playerCard = [normalCombination[randCard]['c1'] ,normalCombination[randCard]['c2'],normalCombination[randCard]['c3']];
+			socket.emit('modifyResult', 
+				{
+					"playerRes1" : playerCard[0] ,
+					"playerRes2" : playerCard[1] ,
+					"ep2card" : playerCard[2], 
+					"BankerRes1" : bankerCard[0],
+					"BankerRes2" : bankerCard[1],
+					"eb2card" : bankerCard[2],
+					"bankerPair" : false,
+					"playerPair" : false,
+					"playerNatural" : false,
+					"BankerNatural" : false,
+					"firstLefttVal" : normalCombination[randCard]['firstLefttVal'],
+					"firstRightVal" :normalCombination[randCard]['firstRightVal'],
+					"leftVal" : normalCombination[randCard]['leftVal'],
+					"rightVal" : normalCombination[randCard]['rightVal'],
+					"secondLeftVal" : normalCombination[randCard]['secondLeftVal'],
+					"secondRightVal" : normalCombination[randCard]['secondRightVal'],
+				}
+			);
+		}
+
+	})
+
+
+	$('#banker_normal').click(function(){
+		if (!admin_cheat) {
+			alert("Can't Modify result right now.")
+		} else {
+
+
+
+			var randCard = randCards(2);
+			var playerCard = [normalCombination[randCard]['c14'] ,normalCombination[randCard]['c15'],normalCombination[randCard]['c16']];
+			var bankerCard = [normalCombination[randCard]['c1'] ,normalCombination[randCard]['c2'],normalCombination[randCard]['c3']];
+
+			socket.emit('modifyResult', 
+				{
+					"playerRes1" : playerCard[0] ,
+					"playerRes2" : playerCard[1] ,
+					"ep2card" : playerCard[2], 
+					"BankerRes1" : bankerCard[0],
+					"BankerRes2" : bankerCard[1],
+					"eb2card" : bankerCard[2],
+					"bankerPair" : true,
+					"playerPair" : false,
+					"playerNatural" : false,
+					"BankerNatural" : false,
+					"firstLefttVal" : normalCombination[randCard]['firstRightVal'],
+					"firstRightVal" :normalCombination[randCard]['firstLefttVal'],
+					"leftVal" : normalCombination[randCard]['rightVal'] ,
+					"rightVal" : normalCombination[randCard]['leftVal'],
+					"secondLeftVal" : normalCombination[randCard]['secondRightVal'],
+					"secondRightVal" : normalCombination[randCard]['secondLeftVal'],
+				}
+			);
+		}
+	})
+
+
 
 	$('#reset').click(function(){
 
