@@ -92,9 +92,9 @@ server.listen(server_port , server_ip_address , function(){
 
 
 
-server.listen(5000,function(){
-	console.log('Starting server on port5000');
-})
+// server.listen(5000,function(){
+// 	console.log('Starting server on port5000');
+// })
 
 
 var draw_cards = [
