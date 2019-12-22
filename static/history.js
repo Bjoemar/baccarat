@@ -367,7 +367,6 @@ $('#checkResult').click(function(){
 })
 
 socket.on('resdata' , function(data){
-	console.log(data);
 
 	if (data.length > 0) {
 		$('#invalidtxt').hide();
@@ -388,11 +387,11 @@ socket.on('resdata' , function(data){
 		var Bpair = "NO";
 
 		if (data[0].bankerPair) {
-			var Ppair = "YES";
+			var Bpair = "YES";
 		}
 		
 		if (data[0].playerPair) {
-			var Bpair = "YES";
+			var Ppair = "YES";
 		}
 
 
