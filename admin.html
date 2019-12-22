@@ -671,29 +671,31 @@ function randCards(type){
 
 	socket.on('seconds',function(data){
 
+		admin_cheat = false;
+		$('#secondsIndicator').css('color' , 'red');
+
 		if (data.seconds < 10) {
 			$('#secondsIndicator').html('00 : 0'+data.seconds);
 		} else {
 			$('#secondsIndicator').html('00 : '+data.seconds);
 		}
 
-		if (data.seconds > 5 || data.seconds < 55) {
+		if (data.seconds > 5 || data.seconds < 42) {
 			admin_cheat = true;
 			$('#secondsIndicator').css('color' , 'lightgren');
-		} else {
-			admin_cheat = false;
-			$('#secondsIndicator').css('color' , 'red');
-		}
-
+		} 
 	})
 
 	socket.on('gameRounds',function(data){
 		$('#roundsIndicator').html(data.game_round);
 	})
 
+	socket.on('gameRounds',function(data){
+		$('button').css('background' , 'transparent');
+	})
+
 
 	socket.on('loadDataGame',function(data){
-		console.log(data)
 		if ((data[0].round + 1) < 10) {
 			$('#roundsIndicator').html(data[0].round + 1);
 		} else {

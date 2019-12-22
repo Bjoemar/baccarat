@@ -982,7 +982,7 @@ io.on('connection',function(socket){
 	socket.on('clearData',function(){
 		gameResult = [];
 		getResult(gameResult);
-	})
+	});
 
 	// socket.on('getRounds',function(){
 	// 	socket.emit('rounds' , {'round' : gameRound});
