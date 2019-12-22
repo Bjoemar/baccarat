@@ -31,11 +31,10 @@ socket.on('seconds',function(data){
 	}
 })
 socket.on('loadData',function(data){
+	console.log(data)
 	rl = data[0]['roundCount'];
-	if (loadprev) {
-		runToptables(data);
-	}
-
+	runToptables(data);
+	
 });
 socket.on("bankerWin",function(data){
 
@@ -123,13 +122,15 @@ socket.on("bankerWin",function(data){
 		playerPair(data.playerPair);
 		bankerPair(data.bankerPair);
 
-		if (data.playerNatural) {
-			natural(true);
-		} else if (data.BankerNatural) {
-			natural(true);
-		}
 		
 
+	}
+
+
+	if (data.playerNatural) {
+		natural_cards(true);
+	} else if (data.BankerNatural) {
+		natural_cards(true);
 	}
 
 
@@ -223,13 +224,15 @@ socket.on("tieGame",function(data){
 		playerPair(data.playerPair);
 		bankerPair(data.bankerPair);
 
-		if (data.playerNatural) {
-			natural(true);
-		} else if (data.BankerNatural) {
-			natural(true);
-		}
+
 		
 
+	}
+
+	if (data.playerNatural) {
+		natural_cards(true);
+	} else if (data.BankerNatural) {
+		natural_cards(true);
 	}
 
 
@@ -292,6 +295,8 @@ socket.on("playerWin",function(data){
 		bankerPair(data['bankerPair']);
 
 
+
+
 	} else {
 
 		if (winner == 'banker')
@@ -323,13 +328,15 @@ socket.on("playerWin",function(data){
 		playerPair(data.playerPair);
 		bankerPair(data.bankerPair);
 
-		if (data.playerNatural) {
-			natural(true);
-		} else if (data.BankerNatural) {
-			natural(true);
-		}
+
 		
 
+	}
+
+	if (data.playerNatural) {
+		natural_cards(true);
+	} else if (data.BankerNatural) {
+		natural_cards(true);
 	}
 
 
@@ -347,10 +354,13 @@ $('#hashbtn').click(function(){
 
 function runToptables(data) {
 
+
 	for(i = 0; i < data.length; i++)
-	{	
+	{		
 		var winner = data[i]['winner'];
 		var obj = data[i];
+		// console.log(obj['playerNatural'])
+
 
 
 		if (rl >= 38) {
@@ -402,8 +412,8 @@ function runToptables(data) {
 				$('#player_score').html(player_score)
 			}
 
-			playerPair(obj['playerPair']);
-			bankerPair(obj['bankerPair']);
+			// playerPair(obj['playerPair']);
+			// bankerPair(obj['bankerPair']);
 
 
 		} else {
@@ -432,19 +442,24 @@ function runToptables(data) {
 					// 	}
 				prev_Win = winner;
 				rl++;
+
 			}
 
-			playerPair(obj['playerPair']);
-			bankerPair(obj['bankerPair']);
-
-
-			if (obj['playerNatural']) {
-				natural(true);
-			} else if (obj['BankerNatural']) {
-				natural(true);
-			}	
 		
 
+		}
+
+
+		playerPair(obj['playerPair']);
+		bankerPair(obj['bankerPair']);
+
+		if (obj['playerNatural']) {
+			if ((obj['playerNatural'])){
+				natural_cards(obj['playerNatural']);
+			} else if ((obj['playerNatural'])) {
+			natural_cards(obj['BankerNatural']);
+			}
+						
 		}
 
 	}
@@ -576,9 +591,9 @@ function bankerPair(con) {
 }
 
 
-function natural(con) {
+function natural_cards(con) {
 	if (con) {
-		$('.chips_top .c_holder').last().find('.chips').find('.top_chips').last().append('<div class="natural_dot"></div>')
+		$('.chips_top .c_holder').last().find('.chips').last().find('.top_chips').append('<div class="natural_dot"></div>');
 		natural_score++;
 		$('#natural_score').html(natural_score);
 	}
