@@ -682,7 +682,9 @@ function randCards(type){
 		if (data.seconds > 5 || data.seconds < 42) {
 			admin_cheat = true;
 			$('#secondsIndicator').css('color' , 'lightgren');
-		} else {
+		} 
+		
+		if(data.seconds < 5 || data.seconds > 42){
 			admin_cheat = false;
 			$('#secondsIndicator').css('color' , 'red');
 		}
