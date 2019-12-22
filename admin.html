@@ -671,7 +671,8 @@ function randCards(type){
 
 	socket.on('seconds',function(data){
 
-	
+		
+		// console.log(data);
 
 		if (data.seconds < 10) {
 			$('#secondsIndicator').html('00 : 0'+data.seconds);
@@ -679,24 +680,24 @@ function randCards(type){
 			$('#secondsIndicator').html('00 : '+data.seconds);
 		}
 
-		if (data.seconds > 5 || data.seconds < 42) {
+		if (data.seconds > 5 && data.seconds < 42) {
 			admin_cheat = true;
-			$('#secondsIndicator').css('color' , 'lightgren');
-		} 
-		
-		if(data.seconds < 5 || data.seconds > 42){
+			// console.log('OUT')
+			$('#secondsIndicator').css({'color' : 'lightgreen'});
+
+		} else{
+			// console.log('IN')
 			admin_cheat = false;
 			$('#secondsIndicator').css('color' , 'red');
 		}
+
 	})
 
 	socket.on('gameRounds',function(data){
 		$('#roundsIndicator').html(data.game_round);
-	})
-
-	socket.on('gameRounds',function(data){
 		$('button').css('background' , 'transparent');
 	})
+
 
 
 	socket.on('loadDataGame',function(data){
