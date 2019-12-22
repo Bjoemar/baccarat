@@ -30,8 +30,10 @@ var url = "mongodb://localhost:27017/baccarats";
 // var url = "mongodb+srv://joemar12:joemar12@baccarat-oh6ud.mongodb.net/test?retryWrites=true&w=majority";
 
 
+var roundxs = moment().format('HH') * 60;
+var roundys = moment().format('mm');
+var gameRound = (parseInt(roundxs) + parseInt(roundys)) + 1;
 
-var gameRound = 0;
 var table_count = 0;
 var lastWinner = null;
 var roundCount = 0;
@@ -45,7 +47,7 @@ MongoClient.connect(url, function(err , db){
 			roundCount = result[0]['roundCount'];
 			table_count =  result[0]['table_count'];
 			lastWinner = result[0]['winner'];
-			gameRound = result[0]['round'];
+			
 			console.log(roundCount);
 			console.log(table_count);
 			console.log(lastWinner);
