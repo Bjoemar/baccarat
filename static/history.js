@@ -388,7 +388,9 @@ socket.on('resdata' , function(data){
 
 		if (data[0].bankerPair) {
 			var Ppair = "YES";
-		} else if (data[0].playerPair) {
+		}
+		
+		if (data[0].playerPair) {
 			var Bpair = "YES";
 		}
 
