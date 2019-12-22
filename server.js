@@ -21,13 +21,13 @@ var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0'
 
 var mongo = require('mongodb');
 var MongoClient = require('mongodb').MongoClient;
-var url = "mongodb://localhost:27017/baccarats";
+// var url = "mongodb://localhost:27017/baccarats";
 // var url = "mongodb://joemar12:joemar12@ds329058.mlab.com:29058/baccarat";
 // var url = "mongodb://joemargame12:joemargame12@ds329698-a0.mlab.com:29698,ds329698-a1.mlab.com:29698/baccarat?replicaSet=rs-ds329698";
 
 
 // Main Database url 
-// var url = "mongodb+srv://joemar12:joemar12@baccarat-oh6ud.mongodb.net/test?retryWrites=true&w=majority";
+var url = "mongodb+srv://joemar12:joemar12@baccarat-oh6ud.mongodb.net/test?retryWrites=true&w=majority";
 
 
 var roundxs = moment().format('HH') * 60;
@@ -87,16 +87,16 @@ app.get('/d216562cb392efa26d79cd4a8a5938cb', function(request , response) {
 app.use(express.static('./'));
 
 
-// server.listen(server_port , server_ip_address , function(){
-// 	console.log('Listening on' + server_ip_address + ', port' + server_port);	
-// })
-
-
-
-
-server.listen(5000,function(){
-	console.log('Starting server on port5000');
+server.listen(server_port , server_ip_address , function(){
+	console.log('Listening on' + server_ip_address + ', port' + server_port);	
 })
+
+
+
+
+// server.listen(5000,function(){
+// 	console.log('Starting server on port5000');
+// })
 
 
 var draw_cards = [
