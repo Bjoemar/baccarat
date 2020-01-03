@@ -151,7 +151,7 @@ socket.on("tieGame",function(data){
 	}
 
 	var winner = data.winner;
-	var winner = data.winner;
+
 	if (winner == 'tie') 
 	{
 		tieChips(prev_Win);
@@ -223,10 +223,6 @@ socket.on("tieGame",function(data){
 
 		playerPair(data.playerPair);
 		bankerPair(data.bankerPair);
-
-
-		
-
 	}
 
 	if (data.playerNatural) {

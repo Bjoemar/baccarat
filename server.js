@@ -580,7 +580,7 @@ function getResult(gameResult){
 
 			secondRightVal = rightVal + ebcard;
 			// secondRightVal = secondRightVal % 10;
-		} else if (rightVal == 5 || secondLeftVal == 5) {
+		} else if (rightVal < leftVal || rightVal < secondLeftVal) {
 
 
 			if (leftVal == 4 || leftVal == 5 || leftVal == 6 || leftVal == 7) {
@@ -657,7 +657,7 @@ function getResult(gameResult){
 
 			secondRightVal = rightVal + ebcard;
 			// secondRightVal = secondRightVal % 10;
-		} else if (rightVal == 5 || secondLeftVal == 5) {
+		} else if (rightVal < leftVal || rightVal < secondLeftVal) {
 
 
 			if (leftVal == 4 || leftVal == 5 || leftVal == 6 || leftVal == 7) {

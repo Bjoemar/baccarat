@@ -65,16 +65,25 @@ body {
 	height: 600px;
 	margin: auto;
 	background: url('../images/result_bg.png');
+
 	background-size: cover;
 	position: relative;
 
 }
 
 
+.chips_top::-webkit-scrollbar {
+    display: none;
+} 
+
 .chips_top {
 	height: 240px;
+	overflow-y: scroll;
 	width: 100%;
-	opacity: 0.8;
+	/*opacity: 0.8;*/
+	background: url('../images/top_chips_bg.png');
+	background-size: contain;
+	/*background: no-repeat;*/
 }
 
 
@@ -93,7 +102,7 @@ body {
 }
 
 .c_holder {
-	height: 238px;
+	/*height: 238px;*/
 	width : 23.66px;
 	float: left;
 	overflow: hidden;
