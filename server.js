@@ -494,7 +494,72 @@ function getResult(gameResult){
 		// Stands
 	} else if (rightVal == 1) {
 
+		if ((leftVal == 1 || leftVal == 2 || leftVal == 3 || leftVal == 4 || leftVal == 5 || leftVal == 6 || leftVal == 7 || leftVal == 9 || leftVal == 10) || (secondLeftVal == 1 || secondLeftVal == 2 || secondLeftVal == 3 || secondLeftVal == 4 || secondLeftVal == 5 || secondLeftVal == 6 || secondLeftVal == 7 || secondLeftVal == 9)) {
+
+			var banker_Extra_card = processCard();
+		
+			ebcard = banker_Extra_card['card'];;
+			ebcardShape =  banker_Extra_card['card_shape'];
+
+			eb2card = ebcardShape +'_'+ ebcard;
+
+			if (ebcard == 10 || ebcard == 11 || ebcard == 12 || ebcard == 13) {
+				ebcard = 0;
+			}
+			secondRightVal = rightVal + ebcard;
+			// secondRightVal = secondRightVal % 10;
+
+		} else if(rightVal < leftVal || rightVal < secondLeftVal) {
+			
+			var banker_Extra_card = processCard();
+
+			ebcard = banker_Extra_card['card'];;
+			ebcardShape =  banker_Extra_card['card_shape'];
+
+			eb2card = ebcardShape +'_'+ ebcard;
+
+			if (ebcard == 10 || ebcard == 11 || ebcard == 12 || ebcard == 13) {
+				ebcard = 0;
+			}
+
+			secondRightVal = rightVal + ebcard;
+			// secondRightVal = secondRightVal % 10;
+		}
+
 	} else if (rightVal == 2) {
+
+
+		if ((leftVal == 2 || leftVal == 3 || leftVal == 4 || leftVal == 5 || leftVal == 6 || leftVal == 7 || leftVal == 9 || leftVal == 10) || (secondLeftVal == 2 || secondLeftVal == 3 || secondLeftVal == 4 || secondLeftVal == 5 || secondLeftVal == 6 || secondLeftVal == 7 || secondLeftVal == 9)) {
+
+			var banker_Extra_card = processCard();
+		
+			ebcard = banker_Extra_card['card'];;
+			ebcardShape =  banker_Extra_card['card_shape'];
+
+			eb2card = ebcardShape +'_'+ ebcard;
+
+			if (ebcard == 10 || ebcard == 11 || ebcard == 12 || ebcard == 13) {
+				ebcard = 0;
+			}
+			secondRightVal = rightVal + ebcard;
+			// secondRightVal = secondRightVal % 10;
+
+		} else if(rightVal < leftVal || rightVal < secondLeftVal) {
+			
+			var banker_Extra_card = processCard();
+
+			ebcard = banker_Extra_card['card'];;
+			ebcardShape =  banker_Extra_card['card_shape'];
+
+			eb2card = ebcardShape +'_'+ ebcard;
+
+			if (ebcard == 10 || ebcard == 11 || ebcard == 12 || ebcard == 13) {
+				ebcard = 0;
+			}
+
+			secondRightVal = rightVal + ebcard;
+			// secondRightVal = secondRightVal % 10;
+		}
 
 	} else if (rightVal == 3) {
 
