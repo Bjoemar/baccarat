@@ -463,7 +463,7 @@ socket.on('invalid' , function(data){
 
 			+pastdata.round+'</td><td class="thash"><label>'
 			+pastdata.hash+'</label></td><td class="tsaltcode">'
-			+pastdata._id+'</td><td  class="tcard"><img src="'+p_card3+'"><img src="'+p_card2+'"><img src="'+p_card1+'"> V.S <img src="'+b_card1+'"><img src="'+b_card2+'"><img src="'+b_card3+'"></td>'
+			+pastdata._id+'</td><td  class="tcard"><img src="'+p_card3+'"><img src="'+p_card1+'"><img src="'+p_card2+'"> V.S <img src="'+b_card1+'"><img src="'+b_card2+'"><img src="'+b_card3+'"></td>'
 			+'<td class="tresult '+colorResult+'">'+gameres+'</td></tr>')
 		
 		}
