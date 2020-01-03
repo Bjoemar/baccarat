@@ -459,7 +459,6 @@ function getResult(gameResult){
 	var secondRightVal = 0;
 
 
-
 	// Player Extra card
 	var epcard = 0;
 	var epcardShape
@@ -493,12 +492,16 @@ function getResult(gameResult){
 
 	if (leftVal == 8 || leftVal == 9) {
 		// Stands
+	} else if (rightVal == 1) {
+
+	} else if (rightVal == 2) {
+
 	} else if (rightVal == 3) {
 
 		if ((leftVal == 3 || leftVal == 4 || leftVal == 5 || leftVal == 6 || leftVal == 7 || leftVal == 9 || leftVal == 10) || (secondLeftVal == 3 || secondLeftVal == 4 || secondLeftVal == 5 || secondLeftVal == 6 || secondLeftVal == 7 || secondLeftVal == 9)) {
 
 			var banker_Extra_card = processCard();
-
+ 
 			ebcard = banker_Extra_card['card'];;
 			ebcardShape =  banker_Extra_card['card_shape'];
 
@@ -605,7 +608,6 @@ function getResult(gameResult){
 	
 	} else if (rightVal == 6) {
 
-
 		// if (leftVal == 7) {
 				
 		// 		var banker_Extra_card = processCard();
@@ -641,8 +643,8 @@ function getResult(gameResult){
 
 
 	} else if (rightVal == 7) {
-
-		if ((leftVal == 6) || (secondLeftVal >= 7 )) {
+/*
+		if ((secondLeftVal >= 7 )) {
 			
 			var banker_Extra_card = processCard();
 
@@ -678,7 +680,7 @@ function getResult(gameResult){
 				
 			}	
 
-		} 
+		} */
 		
 
 	} else if (rightVal == 8 || rightVal == 9) {
