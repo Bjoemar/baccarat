@@ -27,7 +27,7 @@ var MongoClient = require('mongodb').MongoClient;
 
 
 // Main Database url 
-var url = "mongodb+srv://joemar12:joemar12@baccarat-oh6ud.mongodb.net/test?retryWrites=true&w=majority";
+var url = "mongodb+srv://joemar12:joemar12@baccarats-oh6ud.mongodb.net/test?retryWrites=true&w=majority";
 
 
 var roundxs = moment().format('HH') * 60;
