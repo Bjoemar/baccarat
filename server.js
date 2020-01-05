@@ -484,7 +484,7 @@ function getResult(gameResult){
 			}
 
 			secondLeftVal = leftVal + epcard;
-			// secondLeftVal = secondLeftVal % 10;
+			secondLeftVal = secondLeftVal % 10;
 			
 		}
 	}
@@ -778,10 +778,10 @@ function getResult(gameResult){
 	gameResult['rightVal'] = rightVal;
 
 	if (secondLeftVal > 0) { //  Decrease Because if greater than 20 the total is having a additional 1 that don't need
-		if (secondLeftVal >= 20 ) {
-			secondLeftVal--;
-		}
-		secondLeftVal = secondLeftVal % 10;
+		// if (secondLeftVal >= 20) {
+		// 	secondLeftVal--;
+		// }
+		// secondLeftVal = secondLeftVal % 10;
 		gameResult['secondLeftVal'] = secondLeftVal;
 	} else {
 		gameResult['secondLeftVal'] = leftVal;
