@@ -62,6 +62,7 @@ body {
 
 .game {
 	max-width: 900px;
+	min-width: 900px;
 	height: 600px;
 	margin: auto;
 	background: url('../images/result_bg.png');

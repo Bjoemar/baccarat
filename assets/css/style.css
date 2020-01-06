@@ -42,6 +42,7 @@ body {
 
 .game {
 	max-width: 830px;
+	min-width: 830px;
 	height: 600px;
 	margin: auto;
 	background: url('../images/bg.jpg');
