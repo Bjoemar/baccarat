@@ -769,7 +769,7 @@ function animateCards(){
 }
 
 socket.on('gameRounds',function(data){
-	$('#round_text').html('ROUND '+data.game_round);
+	$('#round_text').html('ROUND '+data.game_round + 1);
 })
 
 // animateCards();
