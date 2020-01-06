@@ -843,7 +843,7 @@ setInterval(function(){
 	var seconds = 60 - moment().format('ss');
 	var roundx = moment().format('HH') * 60;
 	var roundy = moment().format('mm');
-	var rounds = (parseInt(roundy) + parseInt(roundx)) + 1;
+	var rounds = (parseInt(roundy) + parseInt(roundx));
 
 
 
