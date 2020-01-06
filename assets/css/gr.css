@@ -210,7 +210,7 @@ body {
 
 @media only screen and (max-width: 650px) {
 	.game {
-		zoom : 0.53;
+		zoom : 0.5;
 	}
 }
 
