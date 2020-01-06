@@ -32,7 +32,7 @@ var url = "mongodb+srv://joemar12:joemar12@baccarats-oh6ud.mongodb.net/test?retr
 
 var roundxs = moment().format('HH') * 60;
 var roundys = moment().format('mm');
-var gameRound = (parseInt(roundxs) + parseInt(roundys));
+var gameRound = (parseInt(roundxs) + parseInt(roundys)) + 1;
 
 var table_count = 0;
 var lastWinner = null;
@@ -843,7 +843,7 @@ setInterval(function(){
 	var seconds = 60 - moment().format('ss');
 	var roundx = moment().format('HH') * 60;
 	var roundy = moment().format('mm');
-	var rounds = (parseInt(roundy) + parseInt(roundx));
+	var rounds = (parseInt(roundy) + parseInt(roundx)) + 1;
 
 
 
