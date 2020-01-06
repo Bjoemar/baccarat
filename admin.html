@@ -694,7 +694,7 @@ function randCards(type){
 	})
 
 	socket.on('gameRounds',function(data){
-		$('#roundsIndicator').html(data.game_round);
+		$('#roundsIndicator').html(data.game_round + 1);
 		$('button').css('background' , 'transparent');
 	})
 
