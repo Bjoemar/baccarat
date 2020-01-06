@@ -32,7 +32,8 @@ socket.on('seconds',function(data){
 })
 socket.on('loadData',function(data){
 	console.log(data)
-	rl = data[0]['roundCount'];
+	var rpos = data.length;
+	rl = data[rpos]['roundCount'];
 	runToptables(data);
 	
 });

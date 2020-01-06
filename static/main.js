@@ -754,7 +754,7 @@ function animateCards(){
 
 	},2000);
 
-
+ 
 
 	setTimeout(function(){
 		$('#_b2').show();
