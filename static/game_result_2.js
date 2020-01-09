@@ -31,104 +31,107 @@ socket.on('seconds',function(data){
 	}
 });
 
+var currentUrl = document.referrer;
 
-$(document).ready(function(){
-    console.log('IPHONE LAYOUT')
-    setTimeout(function(){
-        var screenlength = $(window).width();
-        var ua = navigator.userAgent.toLowerCase(); 
-        if (ua.indexOf('safari') != -1) { 
-          if (ua.indexOf('chrome') > -1) {
-          } else {
+console.log(currentUrl)
 
-            $('#round_text').css({
-                'font-size' : '0.8em',
-            });
+// $(document).ready(function(){
+//     console.log('IPHONE LAYOUT')
+//     setTimeout(function(){
+//         var screenlength = $(window).width();
+//         var ua = navigator.userAgent.toLowerCase(); 
+//         if (ua.indexOf('safari') != -1) { 
+//           if (ua.indexOf('chrome') > -1) {
+//           } else {
 
-            $('#time_text').css({
-                'font-size' : '1em',
-                'line-height' : '1.1'
-            });
+//             $('#round_text').css({
+//                 'font-size' : '0.8em',
+//             });
 
-            $('#playerScore').css({
-                'font-size' : '1em',
-            });
+//             $('#time_text').css({
+//                 'font-size' : '1em',
+//                 'line-height' : '1.1'
+//             });
 
-            $('#bankerScore').css({
-                'font-size' : '1em',
-            });
+//             $('#playerScore').css({
+//                 'font-size' : '1em',
+//             });
 
-           $('.left_s').css({
-                'font-size' : '0.8em',
-            });
+//             $('#bankerScore').css({
+//                 'font-size' : '1em',
+//             });
 
-           
-           $('.right_s').css({
-                'font-size' : '0.8em',
-            });
+//            $('.left_s').css({
+//                 'font-size' : '0.8em',
+//             });
 
 
-            if (screenlength <= 600) {
-            	 $('#round_text').css({
-            	     'font-size' : '0.8em',
-            	 });
+//            $('.right_s').css({
+//                 'font-size' : '0.8em',
+//             });
 
-            	 $('#time_text').css({
-            	     'font-size' : '1em',
-            	     'line-height' : '1.1'
-            	 });
 
-            	 $('#playerScore').css({
-            	     'font-size' : '1em',
-            	 });
+//             if (screenlength <= 600) {
+//             	 $('#round_text').css({
+//             	     'font-size' : '0.8em',
+//             	 });
 
-            	 $('#bankerScore').css({
-            	     'font-size' : '1em',
-            	 });
+//             	 $('#time_text').css({
+//             	     'font-size' : '1em',
+//             	     'line-height' : '1.1'
+//             	 });
 
-            	$('.left_s').css({
-            	     'font-size' : '0.8em',
-            	 });
+//             	 $('#playerScore').css({
+//             	     'font-size' : '1em',
+//             	 });
+
+//             	 $('#bankerScore').css({
+//             	     'font-size' : '1em',
+//             	 });
+
+//             	$('.left_s').css({
+//             	     'font-size' : '0.8em',
+//             	 });
 
             	
-            	$('.right_s').css({
-            	     'font-size' : '0.8em',
-            	 });
+//             	$('.right_s').css({
+//             	     'font-size' : '0.8em',
+//             	 });
 
 
-            } else if (screenlength <= 768) {
-                $('#round_text').css({
-                    'font-size' : '0.8em',
-                });
+//             } else if (screenlength <= 768) {
+//                 $('#round_text').css({
+//                     'font-size' : '0.8em',
+//                 });
 
-                $('#time_text').css({
-                    'font-size' : '1em',
-                    'line-height' : '1.1'
-                });
+//                 $('#time_text').css({
+//                     'font-size' : '1em',
+//                     'line-height' : '1.1'
+//                 });
 
-                $('#playerScore').css({
-                    'font-size' : '1em',
-                });
+//                 $('#playerScore').css({
+//                     'font-size' : '1em',
+//                 });
 
-                $('#bankerScore').css({
-                    'font-size' : '1em',
-                });
+//                 $('#bankerScore').css({
+//                     'font-size' : '1em',
+//                 });
 
-               $('.left_s').css({
-                    'font-size' : '0.8em',
-                });
+//                $('.left_s').css({
+//                     'font-size' : '0.8em',
+//                 });
 
                
-               $('.right_s').css({
-                    'font-size' : '0.8em',
-                });
+//                $('.right_s').css({
+//                     'font-size' : '0.8em',
+//                 });
 
-            }
-          }
-        }
+//             }
+//           }
+//         }
 
-    },3000);
-});
+//     },3000);
+// });
 
 
 
