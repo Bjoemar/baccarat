@@ -20,22 +20,26 @@ $(document).ready(function(){
           if (ua.indexOf('chrome') > -1) {
           } else {
 
+          	$('.timer').css({
+          		'padding-top' : '20px',
+          	})\
+          	
             $('#round_text').css({
                 'font-size' : '0.5em',
             });
 
           
           $('#time_text').css({
-              'font-size' : '0.7em',
+              'font-size' : '1em',
           });
 
             $('#playerScore').css({
-                'font-size' : '0.6em',
+                'font-size' : '0.8em',
             });
 
 
             $('#bankerScore').css({
-                 'font-size' : '0.6em',
+                 'font-size' : '0.8em',
             });
 
             if (screenlength <= 600) {
