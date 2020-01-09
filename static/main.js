@@ -42,31 +42,6 @@ $(document).ready(function(){
                  'font-size' : '0.8em',
             });
 
-            if (screenlength <= 600) {
-
-                $('.powerLine').css({
-                    'right' : '110px',
-                });
-
-          
-                $('.resCircle').css({
-                    'font-size' : '6px',
-                });
-
-                $('.result-round').css({
-                    'font-size' : '8px',
-                    'line-height' : '1.1',
-                });
-
-                $('.powerBall').css({
-                    'font-size' : '6px',
-                });
-
-            } else if (screenlength <= 768) {
-                $('.list .number').css({
-                    'font-size' : '40px',
-               });
-            }
           }
         }
 

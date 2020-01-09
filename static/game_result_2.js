@@ -47,49 +47,17 @@ $(document).ready(function(){
           if (ua.indexOf('chrome') > -1) {
           } else {
 
-            $('#round_text').css({
-                'font-size' : '0.5em',
-            });
+           
+           $('.left_s').css({
+               'font-size' : '0.5em',
+           });
 
-          
-          $('#round_text').css({
-              'font-size' : '0.7em',
-          });
+           
+           
+           $('.right_s').css({
+               'font-size' : '0.5em',
+           });
 
-            $('.powerBall').css({
-                'font-size' : '6px',
-            });
-
-
-            $('.powerLine').css({
-                'display' : 'none',
-            });
-
-            if (screenlength <= 600) {
-
-                $('.powerLine').css({
-                    'right' : '110px',
-                });
-
-          
-                $('.resCircle').css({
-                    'font-size' : '6px',
-                });
-
-                $('.result-round').css({
-                    'font-size' : '8px',
-                    'line-height' : '1.1',
-                });
-
-                $('.powerBall').css({
-                    'font-size' : '6px',
-                });
-
-            } else if (screenlength <= 768) {
-                $('.list .number').css({
-                    'font-size' : '40px',
-               });
-            }
           }
         }
 
