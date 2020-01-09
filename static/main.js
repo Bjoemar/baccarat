@@ -9,12 +9,74 @@ $('.gamebody').animate({
 	'opacity' : '1',
 },1000);
 
+
+
+$(document).ready(function(){
+    console.log('IPHONE LAYOUT')
+    setTimeout(function(){
+        var screenlength = $(window).width();
+        var ua = navigator.userAgent.toLowerCase(); 
+        if (ua.indexOf('safari') != -1) { 
+          if (ua.indexOf('chrome') > -1) {
+          } else {
+
+            $('#round_text').css({
+                'font-size' : '0.5em',
+            });
+
+          
+          $('#round_text').css({
+              'font-size' : '0.7em',
+          });
+
+            $('.powerBall').css({
+                'font-size' : '6px',
+            });
+
+
+            $('.powerLine').css({
+                'display' : 'none',
+            });
+
+            if (screenlength <= 600) {
+
+                $('.powerLine').css({
+                    'right' : '110px',
+                });
+
+          
+                $('.resCircle').css({
+                    'font-size' : '6px',
+                });
+
+                $('.result-round').css({
+                    'font-size' : '8px',
+                    'line-height' : '1.1',
+                });
+
+                $('.powerBall').css({
+                    'font-size' : '6px',
+                });
+
+            } else if (screenlength <= 768) {
+                $('.list .number').css({
+                    'font-size' : '40px',
+               });
+            }
+          }
+        }
+
+    },3000);
+});
+
+
+
 socket.on('seconds',function(data){
 
 	if (data.seconds < 15) {
 		getPast = false;
 	}
-	
+
 	if (data.seconds < 10) {
 		$('#time_text').html("00 : 0"+data.seconds);
 		// time_text.text = "00 : 0"+data.seconds;
