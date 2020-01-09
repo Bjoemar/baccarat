@@ -47,24 +47,25 @@ $(document).ready(function(){
           } else {
 
           	if (currentUrl == "http://aqam-3.com/multi_view_ba/?code=ba") {
+          		alert('CODE IN')
 
           		$('#round_text').css({
-          			'transform': 'scale(0.8)',
+          			'transform': 'scale(0.4)',
           		});
 
           		
           		$('#time_text').css({
-          			'transform': 'scale(0.8)',
+          			'transform': 'scale(0.4)',
           		})	
 
 
           		$('#playerScore').css({
-          			'transform': 'scale(0.8)',
+          			'transform': 'scale(0.4)',
           		})	
 
           		
           		$('#bankerScore').css({
-          			'transform': 'scale(0.8)',
+          			'transform': 'scale(0.4)',
           		})	
           	}
 
@@ -73,24 +74,25 @@ $(document).ready(function(){
 
 
             	if (currentUrl == "http://aqam-3.com/multi_view_ba/?code=ba") {
+            		alert('CODE IN')
 
             		$('#round_text').css({
-            			'transform': 'scale(0.8)',
+            			'transform': 'scale(0.4)',
             		});
 
             		
             		$('#time_text').css({
-            			'transform': 'scale(0.8)',
+            			'transform': 'scale(0.4)',
             		})	
 
 
             		$('#playerScore').css({
-            			'transform': 'scale(0.8)',
+            			'transform': 'scale(0.4)',
             		})	
 
             		
             		$('#bankerScore').css({
-            			'transform': 'scale(0.8)',
+            			'transform': 'scale(0.4)',
             		})	
             	}
 
@@ -98,26 +100,27 @@ $(document).ready(function(){
 
             } else if (screenlength <= 768) {
 
-            	
+
             	if (currentUrl == "http://aqam-3.com/multi_view_ba/?code=ba") {
+            		alert('CODE IN')
 
             		$('#round_text').css({
-            			'transform': 'scale(0.8)',
+            			'transform': 'scale(0.4)',
             		});
 
             		
             		$('#time_text').css({
-            			'transform': 'scale(0.8)',
+            			'transform': 'scale(0.4)',
             		})	
 
 
             		$('#playerScore').css({
-            			'transform': 'scale(0.8)',
+            			'transform': 'scale(0.4)',
             		})	
 
             		
             		$('#bankerScore').css({
-            			'transform': 'scale(0.8)',
+            			'transform': 'scale(0.4)',
             		})	
             	}
 
