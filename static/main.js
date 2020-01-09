@@ -25,17 +25,17 @@ $(document).ready(function(){
             });
 
           
-          $('#round_text').css({
+          $('#time_text').css({
               'font-size' : '0.7em',
           });
 
-            $('.powerBall').css({
-                'font-size' : '6px',
+            $('#playerScore').css({
+                'font-size' : '0.6em',
             });
 
 
-            $('.powerLine').css({
-                'display' : 'none',
+            $('#bankerScore').css({
+                 'font-size' : '0.6em',
             });
 
             if (screenlength <= 600) {
