@@ -52,7 +52,7 @@ $(document).ready(function(){
                'font-size' : '0.5em',
            });
 
-           
+
            
            $('.right_s').css({
                'font-size' : '0.5em',
@@ -74,6 +74,8 @@ socket.on('loadData',function(data){
 	runToptables(data);
 	
 });
+
+
 socket.on("bankerWin",function(data){
 
 	if (rl >= 38) {

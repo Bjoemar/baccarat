@@ -1128,7 +1128,9 @@ io.on('connection',function(socket){
 
 			var dbo = db.db('baccarat');
 			// console.log(roundCount);
-			var query = {'table_count' : table_count};
+			var datenow = moment().format('YYYY-MM-DD');
+
+			var query = {'table_count' : table_count , 'nowdate' : datenow};
 
 
 			dbo.collection('game').find(query).toArray(function(err , result){
@@ -1155,6 +1157,8 @@ io.on('connection',function(socket){
 			if (err) throw err;
 			var dbo = db.db('baccarat');
 			var mysort = {_id: -1};
+
+
 			var query = {nowdate : date.sort};
 			dbo.collection('game').find(query).limit(10).sort(mysort).toArray(function(err, result) {
 					if(err) throw err;
