@@ -31,106 +31,106 @@ socket.on('seconds',function(data){
 	}
 });
 
-var currentUrl = document.referrer;
+// var currentUrl = document.referrer;
 
-console.log(currentUrl)
-
-
-
-$(document).ready(function(){
-    console.log('IPHONE LAYOUT')
-    setTimeout(function(){
-        var screenlength = $(window).width();
-        var ua = navigator.userAgent.toLowerCase(); 
-        if (ua.indexOf('safari') != -1) { 
-          if (ua.indexOf('chrome') > -1) {
-          } else {
-
-          	if (currentUrl == "http://aqam-3.com/multi_view_ba/?code=ba") {
-          		alert('CODE IN')
-
-          		$('#round_text').css({
-          			'transform': 'scale(0.4)',
-          		});
-
-          		
-          		$('#time_text').css({
-          			'transform': 'scale(0.4)',
-          		})	
+// console.log(currentUrl)
 
 
-          		$('#playerScore').css({
-          			'transform': 'scale(0.4)',
-          		})	
+
+// $(document).ready(function(){
+//     console.log('IPHONE LAYOUT')
+//     setTimeout(function(){
+//         var screenlength = $(window).width();
+//         var ua = navigator.userAgent.toLowerCase(); 
+//         if (ua.indexOf('safari') != -1) { 
+//           if (ua.indexOf('chrome') > -1) {
+//           } else {
+
+//           	if (currentUrl == "http://aqam-3.com/multi_view_ba/?code=ba") {
+//           		alert('CODE IN')
+
+//           		$('#round_text').css({
+//           			'transform': 'scale(0.4)',
+//           		});
 
           		
-          		$('#bankerScore').css({
-          			'transform': 'scale(0.4)',
-          		})	
-          	}
+//           		$('#time_text').css({
+//           			'transform': 'scale(0.4)',
+//           		})	
 
 
-            if (screenlength <= 600) {
+//           		$('#playerScore').css({
+//           			'transform': 'scale(0.4)',
+//           		})	
+
+          		
+//           		$('#bankerScore').css({
+//           			'transform': 'scale(0.4)',
+//           		})	
+//           	}
 
 
-            	if (currentUrl == "http://aqam-3.com/multi_view_ba/?code=ba") {
-            		alert('CODE IN')
-
-            		$('#round_text').css({
-            			'transform': 'scale(0.4)',
-            		});
-
-            		
-            		$('#time_text').css({
-            			'transform': 'scale(0.4)',
-            		})	
+//             if (screenlength <= 600) {
 
 
-            		$('#playerScore').css({
-            			'transform': 'scale(0.4)',
-            		})	
+//             	if (currentUrl == "http://aqam-3.com/multi_view_ba/?code=ba") {
+//             		alert('CODE IN')
 
-            		
-            		$('#bankerScore').css({
-            			'transform': 'scale(0.4)',
-            		})	
-            	}
-
-
-
-            } else if (screenlength <= 768) {
-
-
-            	if (currentUrl == "http://aqam-3.com/multi_view_ba/?code=ba") {
-            		alert('CODE IN')
-
-            		$('#round_text').css({
-            			'transform': 'scale(0.4)',
-            		});
+//             		$('#round_text').css({
+//             			'transform': 'scale(0.4)',
+//             		});
 
             		
-            		$('#time_text').css({
-            			'transform': 'scale(0.4)',
-            		})	
+//             		$('#time_text').css({
+//             			'transform': 'scale(0.4)',
+//             		})	
 
 
-            		$('#playerScore').css({
-            			'transform': 'scale(0.4)',
-            		})	
+//             		$('#playerScore').css({
+//             			'transform': 'scale(0.4)',
+//             		})	
 
             		
-            		$('#bankerScore').css({
-            			'transform': 'scale(0.4)',
-            		})	
-            	}
+//             		$('#bankerScore').css({
+//             			'transform': 'scale(0.4)',
+//             		})	
+//             	}
 
 
-            }
-          }
-        }
 
-    },3000);
-});
+//             } else if (screenlength <= 768) {
+
+
+//             	if (currentUrl == "http://aqam-3.com/multi_view_ba/?code=ba") {
+//             		alert('CODE IN')
+
+//             		$('#round_text').css({
+//             			'transform': 'scale(0.4)',
+//             		});
+
+            		
+//             		$('#time_text').css({
+//             			'transform': 'scale(0.4)',
+//             		})	
+
+
+//             		$('#playerScore').css({
+//             			'transform': 'scale(0.4)',
+//             		})	
+
+            		
+//             		$('#bankerScore').css({
+//             			'transform': 'scale(0.4)',
+//             		})	
+//             	}
+
+
+//             }
+//           }
+//         }
+
+//     },3000);
+// });
 
 
 
