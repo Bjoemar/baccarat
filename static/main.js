@@ -22,8 +22,8 @@ $(document).ready(function(){
 
           	$('.timer').css({
           		'padding-top' : '20px',
-          	})\
-          	
+          	});
+
             $('#round_text').css({
                 'font-size' : '0.5em',
             });
