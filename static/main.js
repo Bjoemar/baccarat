@@ -14,6 +14,7 @@ socket.on('seconds',function(data){
 	if (data.seconds < 15) {
 		getPast = false;
 	}
+	
 	if (data.seconds < 10) {
 		$('#time_text').html("00 : 0"+data.seconds);
 		// time_text.text = "00 : 0"+data.seconds;

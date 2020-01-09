@@ -29,9 +29,111 @@ socket.on('seconds',function(data){
 	} else {
 		loadprev = false;
 	}
-})
+});
+
+
+$(document).ready(function(){
+    console.log('IPHONE LAYOUT')
+    setTimeout(function(){
+        var screenlength = $(window).width();
+        var ua = navigator.userAgent.toLowerCase(); 
+        if (ua.indexOf('safari') != -1) { 
+          if (ua.indexOf('chrome') > -1) {
+          } else {
+
+            $('#round_text').css({
+                'font-size' : '0.8em',
+            });
+
+            $('#time_text').css({
+                'font-size' : '1em',
+                'line-height' : '1.1'
+            });
+
+            $('#playerScore').css({
+                'font-size' : '1em',
+            });
+
+            $('#bankerScore').css({
+                'font-size' : '1em',
+            });
+
+           $('.left_s').css({
+                'font-size' : '0.8em',
+            });
+
+           
+           $('.right_s').css({
+                'font-size' : '0.8em',
+            });
+
+
+            if (screenlength <= 600) {
+            	 $('#round_text').css({
+            	     'font-size' : '0.8em',
+            	 });
+
+            	 $('#time_text').css({
+            	     'font-size' : '1em',
+            	     'line-height' : '1.1'
+            	 });
+
+            	 $('#playerScore').css({
+            	     'font-size' : '1em',
+            	 });
+
+            	 $('#bankerScore').css({
+            	     'font-size' : '1em',
+            	 });
+
+            	$('.left_s').css({
+            	     'font-size' : '0.8em',
+            	 });
+
+            	
+            	$('.right_s').css({
+            	     'font-size' : '0.8em',
+            	 });
+
+
+            } else if (screenlength <= 768) {
+                $('#round_text').css({
+                    'font-size' : '0.8em',
+                });
+
+                $('#time_text').css({
+                    'font-size' : '1em',
+                    'line-height' : '1.1'
+                });
+
+                $('#playerScore').css({
+                    'font-size' : '1em',
+                });
+
+                $('#bankerScore').css({
+                    'font-size' : '1em',
+                });
+
+               $('.left_s').css({
+                    'font-size' : '0.8em',
+                });
+
+               
+               $('.right_s').css({
+                    'font-size' : '0.8em',
+                });
+
+            }
+          }
+        }
+
+    },3000);
+});
+
+
+
 socket.on('loadData',function(data){
-	console.log(data)
+
 	var rpos = data.length;
 	rl = data[rpos - 1]['roundCount'];
 	runToptables(data);
@@ -48,6 +150,8 @@ socket.on("bankerWin",function(data){
 		player_pair = 0;
 		tie_score = 0;
 		natural_score = 0;
+
+		rl = 0;
 	}
 
 	var winner = data.winner;
@@ -149,6 +253,7 @@ socket.on("tieGame",function(data){
 		player_pair = 0;
 		tie_score = 0;
 		natural_score = 0;
+		rl = 0;
 	}
 
 	var winner = data.winner;
@@ -249,6 +354,8 @@ socket.on("playerWin",function(data){
 		player_pair = 0;
 		tie_score = 0;
 		natural_score = 0;
+
+		rl = 0;
 	}
 
 	if (winner == 'tie') 
@@ -351,13 +458,11 @@ $('#hashbtn').click(function(){
 
 function runToptables(data) {
 
-
 	for(i = 0; i < data.length; i++)
 	{		
 		var winner = data[i]['winner'];
-		var obj = data[i];
-		// console.log(obj['playerNatural'])
 
+		var obj = data[i];
 
 
 		if (rl >= 38) {
@@ -369,6 +474,7 @@ function runToptables(data) {
 			player_pair = 0;
 			tie_score = 0;
 			natural_score = 0;
+			rl = 0;
 		}
 
 
@@ -663,4 +769,5 @@ function playerInside() {
 			'<div class="player_obj_chips top_chips">'+
 			'</div>'+'</div>')
 }
+
 

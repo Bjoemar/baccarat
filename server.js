@@ -41,7 +41,7 @@ var roundCount = 0;
 
 MongoClient.connect(url, function(err , db){
 	var dbo = db.db("baccarat");
-	dbo.collection('game').find().sort({_id : -1}).toArray(function(err , result) {
+	dbo.collection('game').find().sort({_id : -1}).limit(1).toArray(function(err , result) {
 		if (result.length > 0) {	
 			console.log(result)
 			roundCount = result[0]['roundCount'];
@@ -1046,9 +1046,9 @@ setInterval(function(){
 
 io.on('connection',function(socket){
 	socket.on('modifyResult',function(data){
-		console.log(data)
+		// console.log(data)
 		// gameResult = [];
-		console.log(gameResult)
+		// console.log(gameResult)
 
 		// Score Logic Result
 		gameResult['bankerPair'] = data.bankerPair;
@@ -1081,7 +1081,7 @@ io.on('connection',function(socket){
 		 }
 		 
 			
-		 console.log(gameResult)
+		 // console.log(gameResult)
 		 return gameResult;
 	});
 
@@ -1132,8 +1132,6 @@ io.on('connection',function(socket){
 
 
 			dbo.collection('game').find(query).toArray(function(err , result){
-
-					// console.log(result)
 				if (result.length > 0) {
 					if (err) throw err;
 						socket.emit('loadData' , result);
