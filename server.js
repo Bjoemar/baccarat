@@ -11,6 +11,10 @@ require('moment-timezone');
 moment.tz('Asia/Tokyo');
 var crypto = require('crypto');
 
+var request = require("request");
+var publicIp = require('public-ip');
+
+
 var ObjectId = require('mongodb').ObjectID;
 
 // Open Shift Config
@@ -43,15 +47,12 @@ MongoClient.connect(url, function(err , db){
 	var dbo = db.db("baccarat");
 	dbo.collection('game').find().sort({_id : -1}).limit(1).toArray(function(err , result) {
 		if (result.length > 0) {	
-			console.log(result)
+			// console.log(result)
 			roundCount = result[0]['roundCount'];
 			table_count =  result[0]['table_count'];
 			lastWinner = result[0]['winner'];
 			
-			console.log(roundCount);
-			console.log(table_count);
-			console.log(lastWinner);
-			console.log(gameRound)
+
 		}
 	})
 });
@@ -59,27 +60,75 @@ MongoClient.connect(url, function(err , db){
 app.set('port',5000);
 
 
-app.get('/', function(request , response) {
+app.get('/', function(req , response) {
     response.sendFile(path.join(__dirname, 'index.html'));
 });
 
-app.get('/tableresult', function(request , response) {
+app.get('/tableresult', function(req , response) {
     response.sendFile(path.join(__dirname, 'game_result_2.html'));
 });
 
 
-app.get('/gameHashHistory', function (request, response) {
+app.get('/gameHashHistory', function (req, response) {
   response.sendFile(path.join(__dirname, 'gameHashHistory.html'));
 });
 
 
-app.get('/result', function(request, response) {
+app.get('/result', function(req, response) {
   response.sendFile(path.join(__dirname, 'result.json'));
 });
 
 
-app.get('/d216562cb392efa26d79cd4a8a5938cb', function(request , response) {
-    response.sendFile(path.join(__dirname, 'admin.html'));
+app.get('/d216562cb392efa26d79cd4a8a5938cb', function(req , res) {
+
+	var url = "http://realbet365.net/realbet_access.json"
+
+
+	request({
+	    url: url,
+	    json: true
+	}, function (error, response, body) {
+
+	    if (!error && response.statusCode === 200) {
+
+	    	(async () => {
+
+	    	var access_list_count = body['ipadd'].length;
+	    	var access = false;
+	    	var active = true;
+	    	var userIp_add = await publicIp.v4();
+	    	// console.log(userIp_add)
+	    		// Render All the ip address
+	    		for(i = 0; i < access_list_count; i++) 
+	    		{
+	    			if (body['ipadd'][i]['ip'] == userIp_add) {
+	    				access = true;
+	    				if (body['ipadd'][i]['status'] == 'INACTIVE') {
+	    					active = false;
+	    				} 
+	    			} 
+	    		}
+	    		
+	    		// If IP address MATCH ACESS
+			  	if (access) {
+			  		if (active) {
+			  			res.sendFile(path.join(__dirname, 'admin.html'));
+			  		} else {
+			  			res.send('YOUR IP HAS BEEN BLOCK !')
+			  		}
+			  	} else {
+			  		res.json({ status: '404 Not Found' })
+			  	}
+
+	    	})();
+
+	        
+	    }
+	})
+
+
+
+    
 });
 
 
