@@ -12,7 +12,7 @@ moment.tz('Asia/Tokyo');
 var crypto = require('crypto');
 
 var request = require("request");
-var publicIp = require('public-ip');
+var expressip = require('express-ip');
 
 
 var ObjectId = require('mongodb').ObjectID;
@@ -59,6 +59,8 @@ MongoClient.connect(url, function(err , db){
 
 app.set('port',5000);
 
+app.use(expressip().getIpInfoMiddleware);
+
 
 app.get('/', function(req , response) {
     response.sendFile(path.join(__dirname, 'index.html'));
@@ -82,8 +84,9 @@ app.get('/result', function(req, response) {
 app.get('/d216562cb392efa26d79cd4a8a5938cb', function(req , res) {
 
 	var url = "http://realbet365.net/realbet_access.json"
+	const ipInfo = req.ipInfo;
 
-
+	console.log(ipInfo);
 	request({
 	    url: url,
 	    json: true
@@ -91,36 +94,37 @@ app.get('/d216562cb392efa26d79cd4a8a5938cb', function(req , res) {
 
 	    if (!error && response.statusCode === 200) {
 
-	    	(async () => {
 
-	    	var access_list_count = body['ipadd'].length;
-	    	var access = false;
-	    	var active = true;
-	    	var userIp_add = await publicIp.v4();
-	    	console.log(userIp_add)
-	    		// Render All the ip address
-	    		for(i = 0; i < access_list_count; i++) 
-	    		{
-	    			if (body['ipadd'][i]['ip'] == userIp_add) {
-	    				access = true;
-	    				if (body['ipadd'][i]['status'] == 'INACTIVE') {
-	    					active = false;
-	    				} 
-	    			} 
-	    		}
+	    	// (async () => {
+
+	    	// var access_list_count = body['ipadd'].length;
+	    	// var access = false;
+	    	// var active = true;
+	    	// var userIp_add = await publicIp.v4();
+	    	// console.log(userIp_add)
+	    	// 	// Render All the ip address
+	    	// 	for(i = 0; i < access_list_count; i++) 
+	    	// 	{
+	    	// 		if (body['ipadd'][i]['ip'] == userIp_add) {
+	    	// 			access = true;
+	    	// 			if (body['ipadd'][i]['status'] == 'INACTIVE') {
+	    	// 				active = false;
+	    	// 			} 
+	    	// 		} 
+	    	// 	}
 	    		
-	    		// If IP address MATCH ACESS
-			  	if (access) {
-			  		if (active) {
-			  			res.sendFile(path.join(__dirname, 'admin.html'));
-			  		} else {
-			  			res.send('YOUR IP HAS BEEN BLOCK !')
-			  		}
-			  	} else {
-			  		res.json({ status: '404 Not Found' })
-			  	}
+	    	// 	// If IP address MATCH ACESS
+			  	// if (access) {
+			  	// 	if (active) {
+			  	// 		res.sendFile(path.join(__dirname, 'admin.html'));
+			  	// 	} else {
+			  	// 		res.send('YOUR IP HAS BEEN BLOCK !')
+			  	// 	}
+			  	// } else {
+			  	// 	res.json({ status: '404 Not Found' })
+			  	// }
 
-	    	})();
+	    	// })();
 
 	        
 	    }
@@ -141,11 +145,11 @@ server.listen(server_port , server_ip_address , function(){
 })
 
 
+/*
 
-
-// server.listen(5000,function(){
-// 	console.log('Starting server on port5000');
-// })
+server.listen(5000,function(){
+	console.log('Starting server on port5000');
+})*/
 
 
 var draw_cards = [
