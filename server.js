@@ -87,16 +87,16 @@ app.get('/d216562cb392efa26d79cd4a8a5938cb', function(request , response) {
 app.use(express.static('./'));
 
 
-server.listen(server_port , server_ip_address , function(){
-	console.log('Listening on' + server_ip_address + ', port' + server_port);	
-})
-
-
-
-
-// server.listen(5000,function(){
-// 	console.log('Starting server on port5000');
+// server.listen(server_port , server_ip_address , function(){
+// 	console.log('Listening on' + server_ip_address + ', port' + server_port);	
 // })
+
+
+
+
+server.listen(5000,function(){
+	console.log('Starting server on port5000');
+})
 
 
 var draw_cards = [
@@ -950,10 +950,10 @@ setInterval(function(){
 		  		fs.writeFileSync('result.json', data);
 			  	setTimeout(function(){
 
-			  		dbo.collection("game").insertOne(myobj, function(err, res){
-					    console.log("ROUND "+rounds+" RECORDER");
-					    db.close();
-					}); //End of insertOne
+			  // 		dbo.collection("game").insertOne(myobj, function(err, res){
+					//     console.log("ROUND "+rounds+" RECORDER");
+					//     db.close();
+					// }); //End of insertOne
 
 			  	},10000)
 
