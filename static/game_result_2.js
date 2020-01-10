@@ -68,7 +68,7 @@ $(document).ready(function(){
 
 
 socket.on('loadData',function(data){
-	console.log(data)
+
 
 	var rpos = data.length;
 	// rl = data[rpos - 1]['roundCount'];
@@ -398,7 +398,6 @@ function runToptables(data) {
 
 	for(i = 0; i < data.length; i++)
 	{		
-		console.log(rl)
 		var winner = data[i]['winner'];
 
 		var obj = data[i];
