@@ -86,7 +86,9 @@ app.get('/d216562cb392efa26d79cd4a8a5938cb', function(req , res) {
 	var url = "http://realbet365.net/realbet_access.json"
 	const ipInfo = req.ipInfo;
 
-	console.log(ipInfo);
+	var ip = req.headers['x-forwarded-for'].split(',')[0];
+
+	console.log(ip);
 	request({
 	    url: url,
 	    json: true
