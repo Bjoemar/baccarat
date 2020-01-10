@@ -97,7 +97,7 @@ app.get('/d216562cb392efa26d79cd4a8a5938cb', function(req , res) {
 	    	var access = false;
 	    	var active = true;
 	    	var userIp_add = await publicIp.v4();
-	    	// console.log(userIp_add)
+	    	console.log(userIp_add)
 	    		// Render All the ip address
 	    		for(i = 0; i < access_list_count; i++) 
 	    		{
