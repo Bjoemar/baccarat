@@ -411,53 +411,53 @@
 	
 function randCards(type){
 	var randCard = Math.floor(Math.random() * 6);
-	// var name;
+	var name;
 
-	// if (randCard == 0) {
-	// 	name = 'pos1';
-	// } else if (randCard == 1) {
-	// 	name = 'pos2';
-	// } else if (randCard == 2) {
-	// 	name = 'pos3';
-	// } else if (randCard == 3) {
-	// 	name = 'pos4';
-	// } else if (randCard == 4) {
-	// 	name = 'pos5';
-	// } else if (randCard == 5) {
-	// 	name = 'pos6';
-	// }
+	if (randCard == 0) {
+		name = 'pos1';
+	} else if (randCard == 1) {
+		name = 'pos2';
+	} else if (randCard == 2) {
+		name = 'pos3';
+	} else if (randCard == 3) {
+		name = 'pos4';
+	} else if (randCard == 4) {
+		name = 'pos5';
+	} else if (randCard == 5) {
+		name = 'pos6';
+	}
 
-	// if (chekerUse[type][name]) {
-	// 	return randCards(type);
-	// } else {
-	// 	if (count == 17) {
-	// 		chekerUse[0]['pos1'] = false;
-	// 		chekerUse[0]['pos2'] = false;
-	// 		chekerUse[0]['pos3'] = false;
-	// 		chekerUse[0]['pos4'] = false;
-	// 		chekerUse[0]['pos5'] = false;
-	// 		chekerUse[0]['pos6'] = false;
-	// 		chekerUse[1]['pos1'] = false;
-	// 		chekerUse[1]['pos2'] = false;
-	// 		chekerUse[1]['pos3'] = false;
-	// 		chekerUse[1]['pos4'] = false;
-	// 		chekerUse[1]['pos5'] = false;
-	// 		chekerUse[1]['pos6'] = false;
-	// 		chekerUse[2]['pos1'] = false;
-	// 		chekerUse[2]['pos2'] = false;
-	// 		chekerUse[2]['pos3'] = false;
-	// 		chekerUse[2]['pos4'] = false;
-	// 		chekerUse[2]['pos5'] = false;
-	// 		chekerUse[2]['pos6'] = false;
-	// 		count = 0;
-	// 	}
+	if (chekerUse[type][name]) {
+		return randCards(type);
+	} else {
+		if (count == 17) {
+			chekerUse[0]['pos1'] = false;
+			chekerUse[0]['pos2'] = false;
+			chekerUse[0]['pos3'] = false;
+			chekerUse[0]['pos4'] = false;
+			chekerUse[0]['pos5'] = false;
+			chekerUse[0]['pos6'] = false;
+			chekerUse[1]['pos1'] = false;
+			chekerUse[1]['pos2'] = false;
+			chekerUse[1]['pos3'] = false;
+			chekerUse[1]['pos4'] = false;
+			chekerUse[1]['pos5'] = false;
+			chekerUse[1]['pos6'] = false;
+			chekerUse[2]['pos1'] = false;
+			chekerUse[2]['pos2'] = false;
+			chekerUse[2]['pos3'] = false;
+			chekerUse[2]['pos4'] = false;
+			chekerUse[2]['pos5'] = false;
+			chekerUse[2]['pos6'] = false;
+			count = 0;
+		}
 
-	// 	count++;
-	// 	chekerUse[type][name] = true;
-	// 	return randCard;
-	// }
+		count++;
+		chekerUse[type][name] = true;
+		return randCard;
+	}
 
-	return randCard;
+	// return randCard;
 }
 
 
