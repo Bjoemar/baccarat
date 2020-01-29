@@ -827,9 +827,7 @@ function getResult(gameResult){
 	gameResult['rightVal'] = rightVal;
 
 	if (secondLeftVal > 0) { //  Decrease Because if greater than 20 the total is having a additional 1 that don't need
-		if (secondLeftVal > 20) {
-			secondLeftVal--;
-		}
+
 		secondLeftVal = secondLeftVal % 10;
 		gameResult['secondLeftVal'] = secondLeftVal;
 	} else {
@@ -838,9 +836,7 @@ function getResult(gameResult){
 
 
 	if (secondRightVal > 0) { //  Decrease Because if greater than 20 the total is having a additional 1 that don't need
-		if (secondRightVal > 20 ) {
-			secondRightVal--;
-		}
+
 		secondRightVal = secondRightVal % 10;
 		gameResult['secondRightVal'] = secondRightVal;
 	} else {
