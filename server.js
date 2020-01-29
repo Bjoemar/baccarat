@@ -141,11 +141,11 @@ server.listen(server_port , server_ip_address , function(){
 })
 
 
-/*
 
-server.listen(5000,function(){
-	console.log('Starting server on port5000');
-})*/
+
+// server.listen(5000,function(){
+// 	console.log('Starting server on port5000');
+// })
 
 
 var draw_cards = [
@@ -717,7 +717,7 @@ function getResult(gameResult){
 					secondRightVal = rightVal + ebcard;
 					// secondRightVal = secondRightVal % 10;
 				}
-			}
+				
 		} else {
 			if ((leftVal == 3 || leftVal == 4 || leftVal == 5 || leftVal == 6 || leftVal == 7 || leftVal == 9 || leftVal == 10) ) {
 
@@ -826,7 +826,7 @@ function getResult(gameResult){
 	} else if (rightVal == 5) {
 		if (leftCardup) {
 			if ((secondLeftVal >= 5 )) {
-				
+
 				var banker_Extra_card = processCard();
 
 				ebcard = banker_Extra_card['card'];;
@@ -863,7 +863,7 @@ function getResult(gameResult){
 
 			}
 		} else {
-			
+
 			if ((leftVal == 6 || leftVal == 7) ) {
 				
 				var banker_Extra_card = processCard();
@@ -1450,7 +1450,3 @@ io.on('connection',function(socket){
 
 });
 
-// setTimeout(function(){
-
-// 	io.sockets.emit("banker_card1",{"BankerRes1" : "spade_12", "bankerTotal" : 0});
-// },3000)
