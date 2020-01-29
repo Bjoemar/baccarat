@@ -1263,6 +1263,7 @@ setInterval(function(){
 			setTimeout(function(){
 				gameResult = [];
 				getResult(gameResult);
+				leftCardup = false;
 			},1000)
 		},13000);
 
