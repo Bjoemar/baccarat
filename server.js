@@ -519,6 +519,8 @@ function getResult(gameResult){
 	
 	var leftCardup = false;
 
+	var rightCardup = false;
+
 	if (rightVal < 8) {
 
 		if (leftVal < 6) {	
@@ -537,6 +539,8 @@ function getResult(gameResult){
 			// secondLeftVal = secondLeftVal % 10;
 
 			leftCardup = true;
+
+		
 			
 		}
 	}
@@ -561,6 +565,8 @@ function getResult(gameResult){
 					secondRightVal = rightVal + ebcard;
 					// secondRightVal = secondRightVal % 10;
 
+					rightCardup = true;
+
 				} 
 				
 		} else {
@@ -580,6 +586,8 @@ function getResult(gameResult){
 				}
 				secondRightVal = rightVal + ebcard;
 				// secondRightVal = secondRightVal % 10;
+
+				rightCardup = true;
 
 			} 
 		}
@@ -602,6 +610,7 @@ function getResult(gameResult){
 				}
 				secondRightVal = rightVal + ebcard;
 				// secondRightVal = secondRightVal % 10;
+				rightCardup = true;
 
 			} 
 		} else {
@@ -619,6 +628,7 @@ function getResult(gameResult){
 				}
 				secondRightVal = rightVal + ebcard;
 				// secondRightVal = secondRightVal % 10;
+				rightCardup = true;
 
 			} 
 
@@ -627,7 +637,7 @@ function getResult(gameResult){
 	} else if (rightVal == 3) {
 
 		if (leftCardup) {
-			if ((secondLeftVal == 3 || secondLeftVal == 4 || secondLeftVal == 5 || secondLeftVal == 6 || secondLeftVal == 7 || secondLeftVal == 8 || secondLeftVal == 9)) {
+			if ((secondLeftVal == 3 || secondLeftVal == 4 || secondLeftVal == 5 || secondLeftVal == 6 || secondLeftVal == 7 || leftVal == 8 || secondLeftVal == 9)) {
 					var banker_Extra_card = processCard();
 				
 					ebcard = banker_Extra_card['card'];;
@@ -640,6 +650,7 @@ function getResult(gameResult){
 					}
 					secondRightVal = rightVal + ebcard;
 					// secondRightVal = secondRightVal % 10;
+					rightCardup = true;
 
 				} 
 				
@@ -658,6 +669,7 @@ function getResult(gameResult){
 				}
 				secondRightVal = rightVal + ebcard;
 				// secondRightVal = secondRightVal % 10;
+				rightCardup = true;
 
 			} 
 		}
@@ -680,6 +692,7 @@ function getResult(gameResult){
 
 				secondRightVal = rightVal + ebcard;
 				// secondRightVal = secondRightVal % 10;
+				rightCardup = true;
 				
 			} 
 		} else {
@@ -698,6 +711,7 @@ function getResult(gameResult){
 
 				secondRightVal = rightVal + ebcard;
 				// secondRightVal = secondRightVal % 10;
+				rightCardup = true;
 				
 			} 
 		}
@@ -720,6 +734,7 @@ function getResult(gameResult){
 
 				secondRightVal = rightVal + ebcard;
 				// secondRightVal = secondRightVal % 10;
+				rightCardup = true;
 			} 
 		} else {
 
@@ -738,6 +753,7 @@ function getResult(gameResult){
 
 				secondRightVal = rightVal + ebcard;
 				// secondRightVal = secondRightVal % 10;
+				rightCardup = true;
 			}  
 		}
 
@@ -763,6 +779,7 @@ function getResult(gameResult){
 		}
 			secondRightVal = rightVal + ebcard;
 			// secondRightVal = secondRightVal % 10;
+			rightCardup = true;
 		
 	}
 
@@ -778,13 +795,22 @@ function getResult(gameResult){
 	gameResult['rightVal'] = rightVal;
 
 
-	secondLeftVal = secondLeftVal % 10;
-	gameResult['secondLeftVal'] = secondLeftVal;
+	if (leftCardup) { //  Decrease Because if greater than 20 the total is having a additional 1 that don't need
+
+		secondLeftVal = secondLeftVal % 10;
+		gameResult['secondLeftVal'] = secondLeftVal;
+	} else {
+		gameResult['secondLeftVal'] = leftVal;
+	}
 
 
-	secondRightVal = secondRightVal % 10;
-	gameResult['secondRightVal'] = secondRightVal;
+	if (rightCardup > 0) { //  Decrease Because if greater than 20 the total is having a additional 1 that don't need
 
+		secondRightVal = secondRightVal % 10;
+		gameResult['secondRightVal'] = secondRightVal;
+	} else {
+		gameResult['secondRightVal'] = rightVal;
+	}
 
 	 // Animation Result
 	 gameResult['playerRes1'] = playerRes1;
@@ -1023,6 +1049,7 @@ setInterval(function(){
 				gameResult = [];
 				getResult(gameResult);
 				leftCardup = false;
+				rightCardup = false;
 			},1000)
 		},13000);
 
