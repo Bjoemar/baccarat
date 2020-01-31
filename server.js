@@ -536,7 +536,7 @@ function getResult(gameResult){
 			}
 
 			secondLeftVal = leftVal + epcard;
-			// secondLeftVal = secondLeftVal % 10;
+			secondLeftVal = secondLeftVal % 10;
 
 			leftCardup = true;
 
