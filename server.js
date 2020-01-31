@@ -627,7 +627,7 @@ function getResult(gameResult){
 	} else if (rightVal == 3) {
 
 		if (leftCardup) {
-			if ((secondLeftVal == 3 || secondLeftVal == 4 || secondLeftVal == 5 || secondLeftVal == 6 || secondLeftVal == 7 || leftVal == 8 || secondLeftVal == 9)) {
+			if ((secondLeftVal == 3 || secondLeftVal == 4 || secondLeftVal == 5 || secondLeftVal == 6 || secondLeftVal == 7 || secondLeftVal == 8 || secondLeftVal == 9)) {
 					var banker_Extra_card = processCard();
 				
 					ebcard = banker_Extra_card['card'];;
