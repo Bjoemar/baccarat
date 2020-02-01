@@ -551,7 +551,7 @@ function getResult(gameResult){
 	} else if (rightVal == 1) {
 
 		if (leftCardup) {
-			if ((secondLeftVal == 1 || secondLeftVal == 2 || secondLeftVal == 3 || secondLeftVal == 4 || secondLeftVal == 5 || secondLeftVal == 6 || secondLeftVal == 7 || leftVal == 8 || secondLeftVal == 9)){
+			if ((secondLeftVal == 1 || secondLeftVal == 2 || secondLeftVal == 3 || secondLeftVal == 4 || secondLeftVal == 5 || secondLeftVal == 6 || secondLeftVal == 7 || secondLeftVal == 8 || secondLeftVal == 9)){
 					var banker_Extra_card = processCard();
 				
 					ebcard = banker_Extra_card['card'];;
@@ -572,7 +572,7 @@ function getResult(gameResult){
 		} else {
 
 			
-			if ((leftVal == 1 || leftVal == 2 || leftVal == 3 || leftVal == 4 || leftVal == 5 || leftVal == 6 || leftVal == 7 || leftVal == 9 ||  leftVal == 10)) {
+			if ((leftVal == 1 || leftVal == 2 || leftVal == 3 || leftVal == 4 || leftVal == 5 || leftVal == 6 || leftVal == 7 ||   leftVal == 10)) {
 
 				var banker_Extra_card = processCard();
 			
@@ -596,7 +596,7 @@ function getResult(gameResult){
 
 
 		if (leftCardup) {
-			if ((secondLeftVal == 2 || secondLeftVal == 3 || secondLeftVal == 4 || secondLeftVal == 5 || secondLeftVal == 6 || secondLeftVal == 7 || leftVal == 8 || secondLeftVal == 9)) {
+			if ((secondLeftVal == 2 || secondLeftVal == 3 || secondLeftVal == 4 || secondLeftVal == 5 || secondLeftVal == 6 || secondLeftVal == 7 || secondLeftVal == 8 || secondLeftVal == 9)) {
 
 				var banker_Extra_card = processCard();
 			
@@ -614,7 +614,7 @@ function getResult(gameResult){
 
 			} 
 		} else {
-			if ((leftVal == 2 || leftVal == 3 || leftVal == 4 || leftVal == 5 || leftVal == 6 || leftVal == 7 || leftVal == 9 || leftVal == 10) ) {
+			if ((leftVal == 2 || leftVal == 3 || leftVal == 4 || leftVal == 5 || leftVal == 6 || leftVal == 7 ||  leftVal == 10) ) {
 
 				var banker_Extra_card = processCard();
 			
@@ -637,7 +637,7 @@ function getResult(gameResult){
 	} else if (rightVal == 3) {
 
 		if (leftCardup) {
-			if ((secondLeftVal == 3 || secondLeftVal == 4 || secondLeftVal == 5 || secondLeftVal == 6 || secondLeftVal == 7 || leftVal == 8 || secondLeftVal == 9)) {
+			if ((secondLeftVal == 3 || secondLeftVal == 4 || secondLeftVal == 5 || secondLeftVal == 6 || secondLeftVal == 7 || secondLeftVal == 8 || secondLeftVal == 9)) {
 					var banker_Extra_card = processCard();
 				
 					ebcard = banker_Extra_card['card'];;
@@ -655,7 +655,7 @@ function getResult(gameResult){
 				} 
 				
 		} else {
-			if ((leftVal == 3 || leftVal == 4 || leftVal == 5 || leftVal == 6 || leftVal == 7 || leftVal == 9 || leftVal == 10) ) {
+			if ((leftVal == 3 || leftVal == 4 || leftVal == 5 || leftVal == 6 || leftVal == 7 ||  leftVal == 10) ) {
 
 				var banker_Extra_card = processCard();
 			
