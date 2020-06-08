@@ -857,12 +857,12 @@ setInterval(function(){
 	var seconds = 60 - moment().format('ss');
 	var roundx = moment().format('HH') * 60;
 	var roundy = moment().format('mm');
-	var rounds = (parseInt(roundy) + parseInt(roundx));
+	var rounds = (parseInt(roundy) + parseInt(roundx)) + 1;
 
 
 
 	io.sockets.emit('seconds', {seconds});
-	io.sockets.emit('rounds' , {'round' : gameRound + 1});
+	io.sockets.emit('rounds' , {'round' : gameRound});
 
 	if (seconds == 58) {
 
@@ -1042,7 +1042,7 @@ setInterval(function(){
 
 			setTimeout(function(){
 				gameRound = rounds;
-				io.sockets.emit('gameRounds',{'game_round' : gameRound + 1});
+				io.sockets.emit('gameRounds',{'game_round' : gameRound});
 			},45000)
 
 			setTimeout(function(){
