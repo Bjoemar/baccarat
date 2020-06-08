@@ -862,7 +862,7 @@ setInterval(function(){
 
 
 	io.sockets.emit('seconds', {seconds});
-	io.sockets.emit('rounds' , {'round' : gameRound});
+	io.sockets.emit('rounds' , {'round' : gameRound + 1});
 
 	if (seconds == 58) {
 
@@ -1042,7 +1042,7 @@ setInterval(function(){
 
 			setTimeout(function(){
 				gameRound = rounds;
-				io.sockets.emit('gameRounds',{'game_round' : gameRound});
+				io.sockets.emit('gameRounds',{'game_round' : gameRound + 1});
 			},45000)
 
 			setTimeout(function(){
